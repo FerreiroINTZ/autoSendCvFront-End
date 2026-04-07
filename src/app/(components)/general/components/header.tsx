@@ -1,4 +1,4 @@
-import styles from "../styles/_header.module.scss"
+import styles from "../styles/header/_header.module.scss"
 
 const Item = ({indice, value}: {indice: string, value: number}) =>{
   return(<>
