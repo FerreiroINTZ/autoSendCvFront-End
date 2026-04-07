@@ -1,0 +1,43 @@
+@mixin data-cor{
+    [data-cor="pessimos"]{
+        background: #2C1414;
+        color: #C35645;
+        span{
+            color: #60393A;
+        }
+    }
+
+    [data-cor="ruins"]{
+        background: #2E1E0E;
+        color: #DA8D59;
+        span{
+            color: #8A6A2E;
+        }
+    }
+
+    [data-cor="bons"]{
+        background: #101B2E;
+        color: #6D9ED0;
+        span{
+            color: #2E648A;
+        }
+    }
+
+    [data-cor="perfeitos"]{
+        background: #0F2620;
+        color: #63BCAE;
+        span{
+            color: #3E7F78;
+        }
+    }
+
+    [data-cor="total"]{
+        background: #E0E0E0;
+        color: #404040;
+        span{
+            color: #202020;
+        }
+    }
+
+    // ===================
+}
