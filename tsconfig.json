@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@icons/*": ["./public/slw/*"]
+      "@icons/*": ["./public/slw/*"],
+      "@generalStyles/*": ["./src/app/(components)/general/styles/*"]
     }
   },
   "include": [

@@ -1,0 +1,22 @@
+@mixin paridade_colors{
+    [data-paridade="perfeito"]{
+        div{
+            background: #87D198;
+        }
+    }
+    [data-paridade="bom"]{
+        div{
+            background: #6592C4;
+        }
+    }
+    [data-paridade="ruim"]{
+        div{
+            background: #E48C4E;
+        }
+    }
+    [data-paridade="pessimo"]{
+        div{
+            background: #E15656;
+        }
+    }
+}

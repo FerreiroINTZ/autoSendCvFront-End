@@ -1,0 +1,53 @@
+@use "./filterElements" as *;
+
+#paridadeContainer{
+    // background: red;
+
+    #title{
+        font-weight: 900;
+        color: #707070;
+        font-size: 16px;
+    }
+
+    ul{
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        @include paridade_colors;
+
+        .card{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #2C2C2C;
+            border: 2px solid #3C3C3C;
+            border-radius: 5px;
+            padding: 10px 10px 10px 15px;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover{
+                transform: scale(1.025);
+            }
+
+            div{
+                width: 10px;
+                height: 10px;
+                border-radius: 10px;
+            }
+
+            p{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                font-weight: 600;
+
+                .paridadeQtd{
+                    opacity: .5;
+                }
+            }
+        }
+    }
+}
