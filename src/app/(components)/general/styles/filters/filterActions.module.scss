@@ -1,0 +1,57 @@
+#filterActions{
+    display: grid;
+    height: fit-content;
+    gap: 10px;
+    // background: red;
+
+    #mainActionsContainer{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        #applyFilters{
+            @extend #buttons;
+
+            height: 35px;
+            border-radius: 3px;
+            background: #232320;
+            color: #98BFA3;
+            border: 1px solid #5C6B60;
+            flex-grow: 1;
+        }
+
+        #clearFilters{
+            @extend #buttons;
+
+            height: 35px;
+            border-radius: 3px;
+            background: #232020;
+            color: #C48A8A;
+            border: 1px solid #6B5C5C;
+            width: 100px;
+        }
+    }
+
+    #goToTop{
+        @extend #buttons;
+        
+        background: none;
+        border: none;
+        align-self: center;
+        color: white;
+
+    }
+}
+
+#buttons{
+            font-size: 12px;
+            font-weight: 600;
+            opacity: .6;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover{
+                transform: scale(1.025);
+                opacity: 1;
+            }
+        }
