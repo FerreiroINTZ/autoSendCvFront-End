@@ -1,6 +1,7 @@
 import styles from "../../styles/filters/_filters.module.scss"
 import {headers} from "next/headers"
 import ParidadeComp from "./pariade"
+import SitesComp from "./sites"
 
 async function filter() {
 
@@ -10,7 +11,8 @@ async function filter() {
 
   return (
     <aside id={styles.filters}>
-      <ParidadeComp />
+      <ParidadeComp mark={styles.mark}/>
+      <SitesComp mark={styles.mark}/>
     </aside>
   )
 }

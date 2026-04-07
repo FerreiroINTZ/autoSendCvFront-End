@@ -20,3 +20,27 @@
         }
     }
 }
+
+@mixin site_color{
+    $path: "../../../../../../public/icons";
+    [data-site="linkedin"]{
+        div{
+            background-image: URL("#{$path}/linkedin.png");
+        }
+    }
+    [data-site="indeed"]{
+        div{
+            background-image: URL("#{$path}/indeed.png");
+        }
+    }
+    [data-site="infojobs"]{
+        div{
+            background-image: URL("#{$path}//infojobs_logo.jpeg");
+        }
+    }
+    [data-site="catho"]{
+        div{
+            background-image: URL("#{$path}/linkedin.png");
+        }
+    }
+}

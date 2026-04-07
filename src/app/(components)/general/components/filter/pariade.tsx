@@ -21,7 +21,7 @@ const Card = ({paridade, qtd}: Paridade) =>{
     )
 }
 
-async function pariade() {
+async function pariade({mark}: {mark: string}) {
 
     const paridades = async (): Promise<Paridade[]> => new Promise((resolve) =>{
         const slw = [
@@ -48,7 +48,7 @@ async function pariade() {
     const data = await paridades()
 
     return (
-    <div id={styles.paridadeContainer}>
+    <div id={styles.paridadeContainer} className={mark}>
         <p id={styles.title}>PARIDADE</p>
         <ul>
             {data.map((x, index) => 

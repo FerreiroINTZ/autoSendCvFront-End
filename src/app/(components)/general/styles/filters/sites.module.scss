@@ -1,6 +1,6 @@
 @use "./filterElements" as *;
 
-#paridadeContainer{
+#sitesContainer{
     // background: red;
 
     #title{
@@ -15,7 +15,7 @@
         flex-direction: column;
         gap: 10px;
         list-style: none;
-        @include paridade_colors;
+        @include site_color;
 
         .card{
             display: flex;
@@ -35,9 +35,11 @@
             }
 
             div{
-                width: 10px;
-                height: 10px;
-                border-radius: 10px;
+                width: 15px;
+                height: 15px;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
             }
 
             p{
