@@ -1,0 +1,27 @@
+@mixin expandedInfo{
+    .expendendInfos{
+        height: 100%;
+        padding: 30px 35px 40px 35px;
+        background: linear-gradient(
+            -45deg,
+            #282828 0%, 
+            #2A2A2A 13%,
+            #272727 43%,
+            #2B2B2B 76%,
+            #282828 100%
+        );
+
+        .label{
+            color: #808080;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .value{
+            color: #C0C0C0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+}

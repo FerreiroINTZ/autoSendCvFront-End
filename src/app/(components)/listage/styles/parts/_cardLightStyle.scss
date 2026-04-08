@@ -1,0 +1,12 @@
+@mixin cardLight{
+    .cardLight{
+        $circleSize: 200px;
+        width: $circleSize;
+        height: $circleSize;
+        border-radius: 100px;
+        position: absolute;
+        // background: red;
+        right: -50px;
+        top: calc(0px - $circleSize/3);
+    }
+}

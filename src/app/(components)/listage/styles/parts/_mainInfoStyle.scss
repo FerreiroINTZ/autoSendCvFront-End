@@ -1,0 +1,44 @@
+@mixin mainInfo{
+    .mainInfos{
+        padding: 25px 30px;
+        position: relative;
+        height: 100%;
+        max-height: 125px;
+        width: 100%;
+        overflow: hidden;
+        background: linear-gradient(
+        45deg,
+        #262626 0%,
+        #282828 26%,
+        #242424 70%,
+        #282828 90%,
+        #262626 100%
+    );
+    border-bottom: 2px solid #101010;
+    // cursor: pointer;
+    
+    .titleContainer{
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+
+        .title{
+            color: #F0F0F0;
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .area_regiao{
+            color: #A0A0A0;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 20px;
+        }
+    }
+
+        .infos{
+            background: red;
+        }
+    }
+}

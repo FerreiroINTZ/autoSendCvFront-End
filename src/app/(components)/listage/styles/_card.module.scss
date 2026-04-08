@@ -1,38 +1,28 @@
-@use "cardSlw" as *;
+@use "cardStyleOptions" as *;
+@use "parts/cardLightStyle" as *;
+@use "parts/mainInfoStyle" as *;
+@use "parts/expadedIfoStyle" as *;
+
+.radionBuntonVac{
+    display: none;
+
+    &:checked + label{
+        min-height: 400px;
+    }
+}
 
 .cardContainer{
-    background: linear-gradient(
-        45deg,
-        #262626 0%,
-        #282828 26%,
-        #242424 70%,
-        #282828 90%,
-        #262626 100%
-    );
-    min-height: 120px;
-    border-bottom: 2px solid #101010;
-    position: relative;
+    min-height: 125px;
     overflow: hidden;
     opacity: .8;
-    cursor: pointer;
     transition: .3s;
+    @include cardLights;
 
     &:hover{
-        min-height: 125px;
-        // box-shadow: 0px 4px 12px 0px red;
         opacity: 1;
     }
 
-    @include cardLights;
-
-    .cardLight{
-        $circleSize: 200px;
-        width: $circleSize;
-        height: $circleSize;
-        border-radius: 100px;
-        position: absolute;
-        // background: red;
-        right: -50px;
-        top: calc(0px - $circleSize/3);
-    }
+    @include cardLight;
+    @include mainInfo;
+    @include expandedInfo;
 }
