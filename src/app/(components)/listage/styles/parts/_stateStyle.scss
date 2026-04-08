@@ -1,0 +1,56 @@
+@mixin stateStyle{
+    .erased{
+        opacity: .25;
+    }
+
+    &[data-paridade="4"]{
+        .saved{
+            background: #75C85B;
+        }
+        .acessed{
+            background: #54DB48;
+        }
+        .applyed{
+            background: #40DD82;
+        }
+    }
+
+    &[data-paridade="3"]{
+        .saved{
+            background: #5B82C8;
+        }
+        .acessed{
+            background: #4877DB;
+        }
+        .applyed{
+            background: #405ADD;
+        }
+    }
+
+    &[data-paridade="2"]{
+        .saved{
+            background: #C8C85B;
+        }
+        .acessed{
+            background: #DBA848;
+        }
+        .applyed{
+            background: #DD7C40;
+        }
+    }
+
+    &[data-paridade="1"]{
+        *{
+            background: orange;
+        }
+        .saved{
+            background: #C85B5B;
+        }
+        .acessed{
+            background: #DB4848;
+        }
+        .applyed{
+            background: #DD4040;
+        }
+    }
+}

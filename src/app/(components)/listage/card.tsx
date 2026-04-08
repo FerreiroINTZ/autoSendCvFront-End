@@ -8,6 +8,7 @@ import salarioIcon from "@icons/money.png"
 import siteIcon from "@icons/site.png"
 import empresaIcon from "@icons/empresa.png"
 import dt_publIicon from "@icons/dt_publicado.png"
+import downArrow from "@icons/arrow.png"
 
 function card({
   title, 
@@ -18,8 +19,10 @@ function card({
   salario,
   site,
   empresa,
-  dt_publicacao
+  dt_publicacao,
+  state
 }: Vancancy) {
+  console.log(state)
   return (
     <>
     <input className={styles.radionBuntonVac} type="radio" id={title} name="vancanciesCards"/>
@@ -30,7 +33,7 @@ function card({
         <div className={styles.titleContainer}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.area_regiao}>{area} - {regiao}</p>
-          <a href={link} className={styles.link}>
+          <a href={link} target="_blank" className={styles.link}>
             <Image src={linkIcon} alt="link icon" title={link}/>
           </a>
         </div>
@@ -41,6 +44,22 @@ function card({
           <li><Image src={siteIcon} alt="" /><p>{site}</p></li>
           <li><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
         </ul>
+        
+        <div className={styles.sideInfos_actions}>
+          <div className={styles.expadIcon}>
+            <Image src={downArrow} alt="arrow" />
+          </div>
+          <div className={styles.wrapper_viewCard_state}>
+            <p className={styles.viewCardText}><button>VER MAIS...</button></p>
+            <div className={styles.state} data-paridade={paridade}>
+              {["saved", "acessed", "applyed"].map((x, index) =>
+              index <= state - 1
+              ? <div key={index} className={styles[x]}></div>
+              : <div key={index} className={`${styles[x]} ${styles.erased}`}></div>
+              )}
+            </div>
+          </div>
+        </div>
         
         <span className={styles.cardLight}></span>
       </div>

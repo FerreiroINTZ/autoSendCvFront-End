@@ -1,8 +1,10 @@
+@use "stateStyle" as *;
+
 @mixin mainInfo{
     .mainInfos{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 14px;
         padding: 18px 30px;
         position: relative;
         height: 100%;
@@ -10,36 +12,35 @@
         width: 100%;
         overflow: hidden;
         background: linear-gradient(
-        45deg,
-        #262626 0%,
-        #282828 26%,
-        #242424 70%,
-        #282828 90%,
-        #262626 100%
-    );
-    border-bottom: 2px solid #101010;
-    // cursor: pointer;
+            45deg,
+            #262626 0%,
+            #282828 26%,
+            #242424 70%,
+            #282828 90%,
+            #262626 100%
+        );
+        border-bottom: 2px solid #101010;
     
         *{
             font-style: italic;
                 font-weight: 600;
         }
 
-    .titleContainer{
-        display: flex;
-        gap: 10px;
-        align-items: flex-end;
+        .titleContainer{
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
 
-        .title{
-            color: #F0F0F0;
-            font-size: 26px;
-        }
+            .title{
+                color: #F0F0F0;
+                font-size: 26px;
+            }
 
-        .area_regiao{
-            color: #A0A0A0;
-            font-size: 20px;
+            .area_regiao{
+                color: #A0A0A0;
+                font-size: 20px;
+            }
         }
-    }
 
         .infos{
             list-style: none;
@@ -56,5 +57,65 @@
                 font-size: 16px;
             }
         }
+
+        .sideInfos_actions{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px 22px 13px 0px;
+            // background: red;
+            z-index: 100;
+
+            *{
+                z-index: 100;
+            }
+
+            .expadIcon{
+                align-self: flex-end;
+            }
+
+            .wrapper_viewCard_state{
+                display: flex;
+                margin-top: auto;
+                flex-direction: column;
+                
+                .viewCardText button{
+                    background: none;
+                    border: none;
+                    color: #C0C0C0;
+                    font-style: italic;
+                    font-size: 16px;
+                    opacity: .6;
+                    cursor: pointer;
+                    transition: .3s;
+
+                    &:hover{
+                        transform: 
+                            scale(1.025) 
+                            translateX(3px) 
+                            translateY(-2px)
+                        ;
+                        opacity: 1;
+                    }
+                }
+    
+                .state{
+                    @include stateStyle;
+                    display: flex;
+
+                    div{
+                        flex-grow: 1;
+                        height: 15px;
+                        background: red;
+                        clip-path: polygon(20% 0%, 0% 100%, 80% 100%, 100% 0%);
+                    }
+                }
+            }
+
+        }
     }
+
 }
