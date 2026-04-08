@@ -15,8 +15,8 @@ const Card = ({site, qtd}: Sites) =>{
         <li className={styles.card} data-site={site}>
             <div></div>
             <p>
-                <span className={styles.paridadeValue}>{siteFormatado}</span>
-                <span className={styles.paridadeQtd}>{qtd}</span>
+                <span className={styles.siteValue}>{siteFormatado}</span>
+                <span className={styles.siteQtd}>{qtd}</span>
             </p>
         </li>
     )
