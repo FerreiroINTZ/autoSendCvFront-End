@@ -1,0 +1,33 @@
+@mixin cardLights{
+    .blur{
+        filter: blur(200);
+    }
+
+    &[data-paridade="1"]{
+        span{
+            background: #C85B5B;
+            @extend .blur;
+        }
+    }
+
+    &[data-paridade="2"]{
+        span{
+            background: #C8C85B;
+            @extend .blur;
+        }
+    }
+
+    &[data-paridade="3"]{
+        span{
+            background: #5B82C8;
+            @extend .blur;
+        }
+    }
+
+    &[data-paridade="4"]{
+        span{
+            background: #75C85B;
+            @extend .blur;
+        }
+    }
+}

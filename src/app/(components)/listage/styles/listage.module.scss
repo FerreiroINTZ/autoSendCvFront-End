@@ -1,0 +1,19 @@
+#vacanciesContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    // background: red;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+
+    &::-webkit-scrollbar-thumb{
+        background: #404040;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar{
+        width: 6px;
+        background: none;
+    }
+}

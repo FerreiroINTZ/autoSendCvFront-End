@@ -1,0 +1,34 @@
+import styles from "./styles/listage.module.scss"
+import getData from "../../(functions)/getList"
+import CardComp from "../../(components)/listage/card"
+
+async function page() {
+
+  const data = await getData()
+  console.log("slw")
+
+  return (
+    <div id={styles.vacanciesContainer}>
+      {data.map((x, index) =>{
+        console.log("================")
+        console.log(x.title)
+        return(
+        <CardComp 
+          key={index}
+          title={x.title}
+          area={x.area}
+          regiao={x.regiao}
+          salario={x.salario}
+          site={x.site}
+          dt_publicacao={x.dt_publicacao}
+          paridade={x.paridade}
+          link={x.link}
+          empresa={x.empresa}
+          />)
+        }
+      )}
+    </div>
+  )
+}
+
+export default page
