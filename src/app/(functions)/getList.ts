@@ -6,10 +6,11 @@ export type Vancancy = {
     regiao: string,
     salario: number,
     site: string,
-    dt_publicacao: Date,
+    dt_publicacao: string,
     paridade: number,
     link: string,
     empresa: string,
+    state: number
 }
 
 export default async function getListage() {
@@ -26,16 +27,24 @@ export default async function getListage() {
       const dados: Vancancy[] = [];
       for (let i = 0; i < 10; i++) {
         const randNum = Math.abs(Math.ceil(Math.random() * 4) - (4 + 1))
+        const randState = Math.abs(Math.ceil(Math.random() * 3) - (3 + 1))
         const obj: Vancancy = {
           title: `vaga ${i}`,
           area: "slw",
           regiao: "campinas",
           salario: Math.ceil(Math.random() * 1000),
           site: "linkedin",
-          dt_publicacao: new Date(),
+          dt_publicacao: (() => {
+            const date = new Date()
+            const day = date.getDay()
+            const month = date.getMonth()
+            const year = date.getFullYear()
+            return `${day}/${month}/${year}`
+            })(),
           paridade: randNum,
           link: "https://uol.com",
           empresa: "microsoft",
+          state: randState
         };
 
         dados.push(obj);

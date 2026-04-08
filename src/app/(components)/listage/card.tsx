@@ -4,13 +4,21 @@ import styles from "./styles/_card.module.scss"
 import {Vancancy} from "../../(functions)/getList"
 
 import linkIcon from "@icons/link.png"
+import salarioIcon from "@icons/money.png"
+import siteIcon from "@icons/site.png"
+import empresaIcon from "@icons/empresa.png"
+import dt_publIicon from "@icons/dt_publicado.png"
 
 function card({
   title, 
   paridade,
   area,
   regiao,
-  link
+  link,
+  salario,
+  site,
+  empresa,
+  dt_publicacao
 }: Vancancy) {
   return (
     <>
@@ -28,7 +36,10 @@ function card({
         </div>
         
         <ul className={styles.infos}>
-          <li>Gabriel</li>
+          <li><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
+          <li><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
+          <li><Image src={siteIcon} alt="" /><p>{site}</p></li>
+          <li><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
         </ul>
         
         <span className={styles.cardLight}></span>

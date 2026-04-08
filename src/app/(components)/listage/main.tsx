@@ -24,6 +24,7 @@ async function page() {
           paridade={x.paridade}
           link={x.link}
           empresa={x.empresa}
+          state={x.state}
           />)
         }
       )}

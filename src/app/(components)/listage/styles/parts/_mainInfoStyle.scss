@@ -1,6 +1,9 @@
 @mixin mainInfo{
     .mainInfos{
-        padding: 25px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px 30px;
         position: relative;
         height: 100%;
         max-height: 125px;
@@ -17,6 +20,11 @@
     border-bottom: 2px solid #101010;
     // cursor: pointer;
     
+        *{
+            font-style: italic;
+                font-weight: 600;
+        }
+
     .titleContainer{
         display: flex;
         gap: 10px;
@@ -25,20 +33,28 @@
         .title{
             color: #F0F0F0;
             font-size: 26px;
-            font-style: italic;
-            font-weight: 600;
         }
 
         .area_regiao{
             color: #A0A0A0;
-            font-style: italic;
-            font-weight: 600;
             font-size: 20px;
         }
     }
 
         .infos{
-            background: red;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: fit-content;
+            column-gap: 60px;
+            height: 100%;
+
+            li{
+                display: flex;
+                gap: 10px;
+                color: #808080;
+                font-size: 16px;
+            }
         }
     }
 }
