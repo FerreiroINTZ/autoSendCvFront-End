@@ -3,10 +3,10 @@ import "./globals.css";
 import MainLayout from "./(components)/general/main"
 
 export const metadata: Metadata = {
-  title: "CV Listage",
+  title: "CV HUB",
   description: "Paginda de listagem das vagas captadas",
   icons: {
-    icon: {url: "/ico.png", sizes: "16x16", type: "image/png"}
+    icon: {url: "/icon.png", sizes: "16x16", type: "image/png"}
   }
 };
 
