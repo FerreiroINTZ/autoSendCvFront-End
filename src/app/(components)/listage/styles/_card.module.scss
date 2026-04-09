@@ -20,6 +20,9 @@
 
     &:hover{
         opacity: 1;
+        .mainInfos{
+            border: none;
+        }
     }
 
     @include cardLight;

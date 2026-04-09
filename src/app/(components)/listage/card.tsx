@@ -50,7 +50,7 @@ function card({
             <Image src={downArrow} alt="arrow" />
           </div>
           <div className={styles.wrapper_viewCard_state}>
-            <p className={styles.viewCardText}><button>VER MAIS...</button></p>
+            <p className={styles.viewCardText}><button>VER MAIS</button></p>
             <div className={styles.state} data-paridade={paridade}>
               {["saved", "acessed", "applyed"].map((x, index) =>
               index <= state - 1

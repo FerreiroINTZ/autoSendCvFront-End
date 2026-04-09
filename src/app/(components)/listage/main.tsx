@@ -1,6 +1,7 @@
 import styles from "./styles/listage.module.scss"
 import getData from "../../(functions)/getList"
 import CardComp from "../../(components)/listage/card"
+import ActionBtn from "../../(components)/listage/actionsBtn"
 
 async function page() {
 
@@ -28,6 +29,7 @@ async function page() {
           />)
         }
       )}
+      <ActionBtn />
     </div>
   )
 }
