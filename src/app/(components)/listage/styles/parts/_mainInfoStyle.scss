@@ -2,6 +2,7 @@
 
 @mixin mainInfo{
     .mainInfos{
+        flex: 0 0 auto;
         display: flex;
         flex-direction: column;
         gap: 14px;

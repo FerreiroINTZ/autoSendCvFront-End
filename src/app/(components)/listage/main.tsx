@@ -26,6 +26,11 @@ async function page() {
           link={x.link}
           empresa={x.empresa}
           state={x.state}
+          sumary={x.sumary}
+          match={x.match}
+          keywords={x.keywords}
+          search={x.search}
+          weknesses={x.weknesses}
           />)
         }
       )}

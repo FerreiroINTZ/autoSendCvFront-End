@@ -7,14 +7,22 @@
     display: none;
 
     &:checked + label{
-        min-height: 400px;
+        $size: 400px;
+        min-height: $size;
+        height: $size;
+        max-height: $size;
+        background: red;
     }
 }
 
 .cardContainer{
+    display: flex;
+    flex-direction: column;
     min-height: 125px;
-    overflow: hidden;
+    height: 125px;
+    max-height: 125px;
     opacity: .8;
+    overflow: hidden;
     transition: .3s;
     @include cardLights;
 

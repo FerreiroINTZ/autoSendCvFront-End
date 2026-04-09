@@ -7,6 +7,16 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+
+  &::-webkit-scrollbar-thumb{
+        background: #404040;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar{
+        width: 3px;
+        background: none;
+    }
 }
 
 body{

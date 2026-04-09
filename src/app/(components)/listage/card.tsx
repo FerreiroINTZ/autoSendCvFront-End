@@ -3,6 +3,8 @@ import Image from "next/image"
 import styles from "./styles/_card.module.scss"
 import {Vancancy} from "../../(functions)/getList"
 
+import ExpandedCard from "./expandedCard/expandedCard"
+
 import linkIcon from "@icons/link.png"
 import salarioIcon from "@icons/money.png"
 import siteIcon from "@icons/site.png"
@@ -20,7 +22,13 @@ function card({
   site,
   empresa,
   dt_publicacao,
-  state
+  state,
+
+  sumary,
+  keywords,
+  match,
+  search,
+  weknesses
 }: Vancancy) {
   console.log(state)
   return (
@@ -64,12 +72,13 @@ function card({
         <span className={styles.cardLight}></span>
       </div>
 
-      <div className={styles.expendendInfos}>
-          <div className={styles.block}>
-            <p className={styles.label}>SUMARY</p>
-            <p className={styles.value}>Boa vaga geral, mas não específica para sua stack.</p>
-          </div>
-      </div>
+      <ExpandedCard 
+        sumary={sumary}
+        keywords={keywords}
+        match={match}
+        search={search}
+        weknesses={weknesses}
+      />
       
     </label>
     </>

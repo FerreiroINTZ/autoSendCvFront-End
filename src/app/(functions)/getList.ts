@@ -1,6 +1,14 @@
 import fs from "fs";
 
-export type Vancancy = {
+export type OtherInfos = {
+  sumary: string, 
+  keywords: string[],
+  match: string[]
+  search: string[],
+  weknesses: string[]
+}
+
+export type Vancancy = OtherInfos & {
     title: string,
     area: string,
     regiao: string,
@@ -44,7 +52,20 @@ export default async function getListage() {
           paridade: randNum,
           link: "https://uol.com",
           empresa: "microsoft",
-          state: randState
+          state: randState,
+
+          sumary: "Boa vaga geral, mas não específica para sua stack. Alem do mais, acho melhor procurar em outro lugar, ja quee a vaga nao condiz com sua stack, parca",
+          search: ["Node", "Nest", "SASS", "React", "Next"],
+          match: ["Node", "Nest", "Typescript", "React", "GSAP", "JavaScript", "nk"],
+          keywords: ["Node", "Nest", "SASS", "React", "Next"],
+          weknesses: [
+            "Nao Menciona React",
+            "Slw, outro bagulho loko",
+            "Precisa de 3 anos de experiencia",
+            "Necessita de Ingles avancado",
+            "Focada em Banco de Dados",
+            "Fora de alcance"
+          ]
         };
 
         dados.push(obj);
