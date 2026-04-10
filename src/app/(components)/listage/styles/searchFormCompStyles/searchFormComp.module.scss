@@ -1,0 +1,80 @@
+@use "./compsStyles/cardHeaderStyle.module" as *;
+@use "./compsStyles/sitesAvailable.module" as *;
+@use "./compsStyles/_qtdAiStyles.module.scss" as * ;
+
+#searchFormComp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    z-index: 3000;
+
+    form{
+        background: #4A4A4A;
+        border: 1px solid #303030;
+        border-radius: 5px;
+        width: 60%;
+        height: 90%;
+        overflow: hidden;
+    }
+
+    @include cardHeader;
+
+    #fieldsContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        height: 100%;
+        width: 100%;
+        padding: 40px;
+
+        #prompt_lists{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #selects{
+            display: grid;
+            column-gap: 60px;
+            grid-template-columns: 1fr 1fr;
+
+            @include sitesAvailable;
+            @include qtd_aiStyles;
+
+            #ai_qtd_sendBtn{
+                display: grid;
+                grid-template-rows: 1fr auto;
+                // background: red;
+
+
+                button{
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-style: italic;
+                    border: 1px solid #606060;
+                    color: #808080;
+                    background: #303030;
+                    opacity: .5;
+                    transition: .3s;
+                    
+                    [data-active="true"]{
+                        background: red;
+                        cursor: pointer;
+                        background: #77EA8C;
+                        border: 1px solid #548B5E;
+                        color: #2A4E31;
+                    }
+                }
+            }
+
+        }
+    }
+}

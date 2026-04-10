@@ -1,0 +1,91 @@
+@mixin qtd_aiStyles{
+    #ai_qtd-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        p{
+            font-size: 24px;
+            font-weight: 600;
+            font-style: italic;
+            color: #C0C0C0;
+        }   
+
+        #qtdContainer, #aiTokenContainer{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #qtdContainer{
+            gap: 12px;
+
+            #qtdSidesContaier{
+                position: relative;
+                display: flex;
+                height: 50px;
+                border-radius: 4px;
+                overflow: hidden;
+                border: 1px solid #808080;
+
+                #paginasContainer, #vagasContainer{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    position: absolute;
+                    width: 54%;
+                    height: 100%;
+                    flex-grow: 1;
+
+                    label, input{
+                        font-weight: 600;
+                        font-style: italic;
+                    }
+                    
+                    label{
+                        color: #808080;
+                        font-size: 18px;
+                    }
+
+                    input{
+                        background: none;
+                        border: none;
+                        outline: none;
+                        color: red;
+                        color: #C0C0C0;
+                        height: 100%;
+                        font-size: 18px;
+                    }
+                } 
+
+                #vagasContainer{
+                    padding-left: 16px;
+                    background: #303030;
+                    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 85% 0%);
+                }
+
+                #paginasContainer{
+                    padding-left: 30px;
+                    background: #505050;
+                    clip-path: polygon(0% 0%, 15% 100%, 100% 100%, 100% 0%);
+                    right: 0px;
+                }
+            }
+        }
+
+        #aiTokenContainer{
+            gap: 6px;
+
+            input{
+                background: #303030;
+                border: 1px solid #808080;
+                border-radius: 4px;
+                outline: none;
+                font-size: 18px;
+                color: #A0A0A0;
+                padding: 16px;
+            }
+        }
+    }
+
+
+}
