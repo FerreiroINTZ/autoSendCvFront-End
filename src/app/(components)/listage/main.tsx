@@ -1,7 +1,7 @@
 import styles from "./styles/listage.module.scss"
 import getData from "../../(functions)/getList"
 import CardComp from "../../(components)/listage/card"
-import ActionBtn from "../../(components)/listage/actionsBtn"
+import ActionBtn from "./fixedContent/fixedContentMain"
 
 async function page() {
 
