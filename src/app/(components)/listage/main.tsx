@@ -9,6 +9,7 @@ async function page() {
   console.log("slw")
 
   return (
+    <>
     <div id={styles.vacanciesContainer}>
       {data.map((x, index) =>{
         console.log("================")
@@ -34,8 +35,9 @@ async function page() {
           />)
         }
       )}
-      <ActionBtn />
     </div>
+      <ActionBtn />
+      </>
   )
 }
 

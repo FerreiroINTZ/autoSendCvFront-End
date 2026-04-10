@@ -4,13 +4,13 @@ import styles from "./styles/_card.module.scss"
 import {Vancancy} from "../../(functions)/getList"
 
 import ExpandedCard from "./expandedCard/expandedCard"
+import DownArrow from "./downArrow"
 
 import linkIcon from "@icons/link.png"
 import salarioIcon from "@icons/money.png"
 import siteIcon from "@icons/site.png"
 import empresaIcon from "@icons/empresa.png"
 import dt_publIicon from "@icons/dt_publicado.png"
-import downArrow from "@icons/arrow.png"
 
 function card({
   title, 
@@ -54,9 +54,7 @@ function card({
         </ul>
         
         <div className={styles.sideInfos_actions}>
-          <div className={styles.expadIcon}>
-            <Image src={downArrow} alt="arrow" />
-          </div>
+          <DownArrow styles={styles}/>
           <div className={styles.wrapper_viewCard_state}>
             <p className={styles.viewCardText}><button>VER MAIS</button></p>
             <div className={styles.state} data-paridade={paridade}>

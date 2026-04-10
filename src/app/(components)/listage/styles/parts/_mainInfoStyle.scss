@@ -77,7 +77,14 @@
             }
 
             .expadIcon{
+                user-select: all;
                 align-self: flex-end;
+                z-index: 2000;
+                cursor: pointer;
+
+                &:active{
+                    background: red;
+                }
             }
 
             .wrapper_viewCard_state{
