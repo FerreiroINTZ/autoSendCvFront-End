@@ -1,9 +1,5 @@
-@mixin prompt_list{
-    #prompt_lists{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            #promptContainer{
+@mixin promptStyle{
+    #promptContainer{
                 display: grid;
                 height: fit-content;
                 max-height: fit-content;
@@ -31,5 +27,5 @@
                     max-height: 100%;
                 }
             }
-        }
+    
 }

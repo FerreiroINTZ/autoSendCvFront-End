@@ -7,6 +7,7 @@ import {Dispatch, SetStateAction} from "react"
 import CardHeaderComp from "./searchFormComps/cardHeader"
 import SitesAvailableComp from "./searchFormComps/sitesAvailable"
 import Qtd_Ai_Comp from "./searchFormComps/qtd_aiComp"
+import ListsComp from './searchFormComps/listsComp'
 
 function searchFormComp(
     {changeCard}: {changeCard: Dispatch<SetStateAction<string>>}
@@ -16,7 +17,9 @@ function searchFormComp(
 
     return (
     <div id={styles.searchFormComp} onClick={() => changeCard("")}>
-        <form onClick={e => e.stopPropagation()}>
+        <form 
+            onClick={e => e.stopPropagation()}
+            onSubmit={e => e.preventDefault()}>
 
             <CardHeaderComp changeCard={changeCard}/>
 
@@ -26,6 +29,11 @@ function searchFormComp(
                     <div id={styles.promptContainer}>
                         <p>PROMPT</p>
                         <textarea defaultValue={defaultPrompt}></textarea>
+                    </div>
+                    
+                    <div id={styles.listsComp}>
+                        <ListsComp field="search words" />
+                        <ListsComp field="keywords" />
                     </div>
                 </div>
                 

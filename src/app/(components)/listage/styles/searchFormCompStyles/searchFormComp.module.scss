@@ -1,7 +1,8 @@
 @use "./compsStyles/cardHeaderStyle.module" as *;
 @use "./compsStyles/sitesAvailable.module" as *;
 @use "./compsStyles/_qtdAiStyles.module.scss" as * ;
-@use "./compsStyles/promptListStyle.module" as *;
+@use "./compsStyles/prompStyle.module" as *;
+@use "./compsStyles/listsStyle.module" as *;
 
 #searchFormComp{
     display: flex;
@@ -34,7 +35,14 @@
         width: 100%;
         padding: 40px;
 
-        @include prompt_list;
+    #prompt_lists{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        @include promptStyle;
+        @include listsStyle;
 
         #selects{
             display: grid;
