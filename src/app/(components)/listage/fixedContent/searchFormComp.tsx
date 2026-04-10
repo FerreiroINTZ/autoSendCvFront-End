@@ -23,7 +23,7 @@ function searchFormComp(
             <div id={styles.fieldsContainer}>
                 
                 <div id={styles.prompt_lists}>
-                    <div>
+                    <div id={styles.promptContainer}>
                         <p>PROMPT</p>
                         <textarea defaultValue={defaultPrompt}></textarea>
                     </div>
