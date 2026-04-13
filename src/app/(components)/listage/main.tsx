@@ -12,7 +12,7 @@ async function page() {
     <>
     <div id={styles.vacanciesContainer}>
       {data.map((x, index) =>{
-        console.log("================")
+        // console.log("================")
         console.log(x.title)
         return(
         <CardComp 

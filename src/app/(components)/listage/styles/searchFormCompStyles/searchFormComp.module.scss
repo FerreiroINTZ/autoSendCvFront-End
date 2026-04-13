@@ -71,12 +71,22 @@
                     opacity: .5;
                     transition: .3s;
                     
-                    [data-active="true"]{
+                    &[data-active="true"]{
                         background: red;
                         cursor: pointer;
-                        background: #77EA8C;
+                        background: #77ea8c;
                         border: 1px solid #548B5E;
                         color: #2A4E31;
+                        
+                        &:hover{
+                            transform: scale(1.025);
+                            opacity: 1;
+                        }
+
+                        &:active{
+                            transform: scale(1);
+                            opacity: .8;
+                        }
                     }
                 }
             }

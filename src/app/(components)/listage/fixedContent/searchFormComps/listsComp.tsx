@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import styles from "../../styles/searchFormCompStyles/searchFormComp.module.scss"
+import {useFormContext} from "react-hook-form"
 
 
 const KeyCard = ({value}: {value: string}) =>{
@@ -13,23 +14,25 @@ const KeyCard = ({value}: {value: string}) =>{
     )
 }
 
-function listsComp({field}: {field: string}) {
+function listsComp({field, fieldLabel}: {field: string, fieldLabel: string}) {
 
     const [values, setValues] = useState(["node", "typescript", "javascript"])
     const [insertItem, setInsertItem] = useState(false)
     
+    const {setValue, getValues} = useFormContext()
+
     function setNewItem(vall: string){
-        // console.log(vall)
         const newList = values
         newList.push(vall)
         setValues(newList)
         setInsertItem(false)
         console.log(newList)
+        setValue(field, newList, { shouldValidate: true })
     }
 
   return (
     <div>
-        <p>{field.toUpperCase()}</p>
+        <p>{fieldLabel.toUpperCase()}</p>
         <ul className={styles.itensList}>
             {values.map((x, index) =>
                 <KeyCard key={index} value={x}/>
