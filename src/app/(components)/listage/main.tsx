@@ -2,10 +2,11 @@ import styles from "./styles/listage.module.scss"
 import getData from "../../(functions)/getList"
 import CardComp from "../../(components)/listage/card"
 import ActionBtn from "./fixedContent/fixedContentMain"
+import getVacancies from "../../(functions)/getList"
 
 async function page() {
 
-  const data = await getData()
+  const data = await getVacancies()
   console.log("slw")
 
   return (
@@ -13,11 +14,11 @@ async function page() {
     <div id={styles.vacanciesContainer}>
       {data.map((x, index) =>{
         // console.log("================")
-        console.log(x.title)
+        // console.log(x.title)
         return(
         <CardComp 
           key={index}
-          title={x.title}
+          titulo={x.titulo}
           area={x.area}
           regiao={x.regiao}
           salario={x.salario}
@@ -27,11 +28,11 @@ async function page() {
           link={x.link}
           empresa={x.empresa}
           state={x.state}
-          sumary={x.sumary}
-          match={x.match}
-          keywords={x.keywords}
-          search={x.search}
-          weknesses={x.weknesses}
+          sumary={x?.sumary}
+          match={x?.match}
+          keywords={x?.keywords}
+          search={x?.search}
+          weknesses={x?.weknesses}
           />)
         }
       )}

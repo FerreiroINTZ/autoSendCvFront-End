@@ -1,15 +1,15 @@
 import fs from "fs";
 
 export type OtherInfos = {
-  sumary: string, 
-  keywords: string[],
-  match: string[]
-  search: string[],
-  weknesses: string[]
+  sumary?: string, 
+  keywords?: string[],
+  match?: string[]
+  search?: string[],
+  weknesses?: string[]
 }
 
 export type Vancancy = OtherInfos & {
-    title: string,
+    titulo: string,
     area: string,
     regiao: string,
     salario: number,
@@ -37,7 +37,7 @@ export default async function getListage() {
         const randNum = Math.abs(Math.ceil(Math.random() * 4) - (4 + 1))
         const randState = Math.abs(Math.ceil(Math.random() * 3) - (3 + 1))
         const obj: Vancancy = {
-          title: `vaga ${i}`,
+          titulo: `vaga ${i}`,
           area: "slw",
           regiao: "campinas",
           salario: Math.ceil(Math.random() * 1000),
@@ -72,8 +72,15 @@ export default async function getListage() {
       }
       resolve(dados);
     });
+  
+  const resp3 = await fetch("http://localhost:3000/listage")
+  const dados: Vancancy[] = await resp3.json()
+  const treatedData = dados.map(x => x.paridade ? x : {...x, paridade: 0}) 
+  console.log("dados") 
+  console.log(treatedData)
 
   const data = await resp2();
+  console.log(treatedData)
 
-  return data;
+  return treatedData;
 }

@@ -3,6 +3,18 @@
         opacity: .25;
     }
 
+    &{ // caso nao tenha pariade definida
+        .saved{
+            background: #7B7B7B;
+        }
+        .acessed{
+            background: #B9B9B9;
+        }
+        .applyed{
+            background: #DDDDDD;
+        }
+    }
+
     &[data-paridade="4"]{
         .saved{
             background: #75C85B;

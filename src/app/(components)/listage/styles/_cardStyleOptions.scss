@@ -3,6 +3,13 @@
         filter: blur(200);
     }
 
+    &[data-paridade="0"]{
+        span{
+            background: #929292;
+            @extend .blur;
+        }
+    }
+
     &[data-paridade="1"]{
         span{
             background: #C85B5B;

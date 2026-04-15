@@ -13,7 +13,7 @@ import empresaIcon from "@icons/empresa.png"
 import dt_publIicon from "@icons/dt_publicado.png"
 
 function card({
-  title, 
+  titulo, 
   paridade,
   area,
   regiao,
@@ -30,16 +30,17 @@ function card({
   search,
   weknesses
 }: Vancancy) {
-  console.log(state)
+  console.log("titulo")
+  console.log(titulo)
   return (
     <>
-    <input className={styles.radionBuntonVac} type="radio" id={title} name="vancanciesCards"/>
-    <label htmlFor={title} className={styles.cardContainer} data-paridade={`${paridade}`}>
+    <input className={styles.radionBuntonVac} type="radio" id={titulo} name="vancanciesCards"/>
+    <label htmlFor={titulo} className={styles.cardContainer} data-paridade={`${paridade}`}>
       
       <div className={styles.mainInfos}>
         
         <div className={styles.titleContainer}>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 className={styles.title}>{titulo}</h3>
           <p className={styles.area_regiao}>{area} - {regiao}</p>
           <a href={link} target="_blank" className={styles.link}>
             <Image src={linkIcon} alt="link icon" title={link}/>
