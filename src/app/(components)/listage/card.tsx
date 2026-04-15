@@ -40,18 +40,22 @@ function card({
       <div className={styles.mainInfos}>
         
         <div className={styles.titleContainer}>
-          <h3 className={styles.title}>{titulo}</h3>
-          <p className={styles.area_regiao}>{area} - {regiao}</p>
+          <h3 className={styles.title} title={titulo}>{titulo}</h3>
+          <div className={styles.area_regiao}>
+            <p>{area}</p> 
+            <p>-</p> 
+            <p></p>
+          </div>
           <a href={link} target="_blank" className={styles.link}>
             <Image src={linkIcon} alt="link icon" title={link}/>
           </a>
         </div>
         
         <ul className={styles.infos}>
-          <li><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
-          <li><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
-          <li><Image src={siteIcon} alt="" /><p>{site}</p></li>
-          <li><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
+          <li className={styles.salarioContainer}><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
+          <li className={styles.empresaContainer} title={empresa}><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
+          <li className={styles.siteContainer}><Image src={siteIcon} alt="" /><p>{site}</p></li>
+          <li className={styles.dt_publicacaoContainer}><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
         </ul>
         
         <div className={styles.sideInfos_actions}>

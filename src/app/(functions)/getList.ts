@@ -75,12 +75,9 @@ export default async function getListage() {
   
   const resp3 = await fetch("http://localhost:3000/listage")
   const dados: Vancancy[] = await resp3.json()
-  const treatedData = dados.map(x => x.paridade ? x : {...x, paridade: 0}) 
-  console.log("dados") 
-  console.log(treatedData)
 
   const data = await resp2();
-  console.log(treatedData)
+  // console.log(dados)
 
-  return treatedData;
+  return dados;
 }

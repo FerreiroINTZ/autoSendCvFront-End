@@ -1,4 +1,5 @@
 import styles from "../styles/header/_header.module.scss"
+import getInfos, {Data} from "@serverFunctions/getInfos"
 
 const Item = ({indice, value}: {indice: string, value: number}) =>{
   return(<>
@@ -13,44 +14,19 @@ const Item = ({indice, value}: {indice: string, value: number}) =>{
   </>)
 }
 
-type Data = {
-  index: string,
-  value: number
-}
+async function header(){
 
-async function header() {
-
-  const datas: Data[] = [
-    {
-      index: "pessimos",
-      value: 3
-    },
-    {
-      index: "ruins",
-      value: 11
-    },
-    {
-      index: "bons",
-      value: 4
-    },
-    {
-      index: "perfeitos",
-      value: 14
-    },
-    {
-      index: "total",
-      value: 60
-    }
-  ]
+  const dados = await getInfos() as Data[]
+  console.log(dados)
 
   return (
     <header id={styles.header}>
       <ul>
-        {datas.map((x, index) => 
+        {dados.map((x, index) => 
         <Item 
           key={index}
           indice={x.index} 
-          value={x.value}
+          value={x.vall}
         />)}
       </ul>
     </header>

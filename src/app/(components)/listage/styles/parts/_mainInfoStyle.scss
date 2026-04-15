@@ -35,13 +35,27 @@
             align-items: flex-end;
 
             .title{
+                max-width: 500px;
+                text-wrap: nowrap;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
                 color: #F0F0F0;
                 font-size: 26px;
             }
 
             .area_regiao{
+                display: flex;
+                gap: 20px;
                 color: #A0A0A0;
                 font-size: 20px;
+                
+                p{
+                    overflow-x: hidden;
+                    text-wrap: nowrap;
+                    text-overflow: ellipsis;
+                    max-width: 280px;
+                    display: block;
+                }
             }
         }
 
@@ -58,6 +72,13 @@
                 gap: 10px;
                 color: #808080;
                 font-size: 16px;
+            }
+
+            #empresaContainer{
+                max-width: 400px;
+                text-wrap: nowrap;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
             }
         }
 
