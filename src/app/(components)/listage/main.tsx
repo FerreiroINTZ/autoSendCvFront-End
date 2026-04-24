@@ -7,6 +7,7 @@ import getVacancies from "../../(functions)/getList"
 async function page() {
 
   const data = await getVacancies()
+  console.log(data)
   console.log("slw")
 
   return (
@@ -28,11 +29,11 @@ async function page() {
           link={x.link}
           empresa={x.empresa}
           state={x.state}
-          sumary={x?.sumary}
-          match={x?.match}
-          keywords={x?.keywords}
-          search={x?.search}
-          weknesses={x?.weknesses}
+          summary={x?.expanded?.summary}
+          matches={x?.expanded?.matches}
+          keywords={x?.expanded?.keywords}
+          searchwords={x?.expanded?.searchwords}
+          weknesses={x?.expanded?.weknesses}
           />)
         }
       )}

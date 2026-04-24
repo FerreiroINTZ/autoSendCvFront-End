@@ -1,13 +1,32 @@
 import fs from "fs";
 
+// os tipos do card de expansao
 export type OtherInfos = {
-  sumary?: string, 
+  summary?: string, 
   keywords?: string[],
-  match?: string[]
-  search?: string[],
+  matches?: string[]
+  searchwords?: string[],
   weknesses?: string[]
 }
 
+// os tipos do card sem expansao
+export type GeneralInfos = {
+  titulo: string,
+    area: string,
+    regiao: string,
+    salario: number,
+    site: string,
+    dt_publicacao: string,
+    paridade: number,
+    link: string,
+    empresa: string,
+    state: number,
+}
+
+// apenas para os dados pegos da API
+type VacancyAPI = GeneralInfos & { expanded: OtherInfos }
+
+// os dados usados nos componentes
 export type Vancancy = OtherInfos & {
     titulo: string,
     area: string,
@@ -18,7 +37,7 @@ export type Vancancy = OtherInfos & {
     paridade: number,
     link: string,
     empresa: string,
-    state: number
+    state: number,
 }
 
 export default async function getListage() {
@@ -54,9 +73,9 @@ export default async function getListage() {
           empresa: "microsoft",
           state: randState,
 
-          sumary: "Boa vaga geral, mas não específica para sua stack. Alem do mais, acho melhor procurar em outro lugar, ja quee a vaga nao condiz com sua stack, parca",
-          search: ["Node", "Nest", "SASS", "React", "Next"],
-          match: ["Node", "Nest", "Typescript", "React", "GSAP", "JavaScript", "nk"],
+          summary: "Boa vaga geral, mas não específica para sua stack. Alem do mais, acho melhor procurar em outro lugar, ja quee a vaga nao condiz com sua stack, parca",
+          searchwords: ["Node", "Nest", "SASS", "React", "Next"],
+          matches: ["Node", "Nest", "Typescript", "React", "GSAP", "JavaScript", "nk"],
           keywords: ["Node", "Nest", "SASS", "React", "Next"],
           weknesses: [
             "Nao Menciona React",
@@ -74,10 +93,10 @@ export default async function getListage() {
     });
   
   const resp3 = await fetch("http://localhost:3000/listage")
-  const dados: Vancancy[] = await resp3.json()
+  const dados: VacancyAPI[] = await resp3.json()
 
-  const data = await resp2();
-  // console.log(dados)
+  // const data = await resp2();
+  console.log(dados)
 
   return dados;
 }

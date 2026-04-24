@@ -24,32 +24,32 @@ function card({
   dt_publicacao,
   state,
 
-  sumary,
+  summary,
   keywords,
-  match,
-  search,
+  matches,
+  searchwords,
   weknesses
 }: Vancancy) {
-  console.log("titulo")
-  console.log(titulo)
+  console.log("searchwords")
+  console.log(searchwords)
   return (
     <>
-    <input className={styles.radionBuntonVac} type="radio" id={titulo} name="vancanciesCards"/>
-    <label htmlFor={titulo} className={styles.cardContainer} data-paridade={`${paridade}`}>
+      <input className={styles.radionBuntonVac} type="radio" id={titulo} name="vancanciesCards"/>
+      <label htmlFor={titulo} className={styles.cardContainer} data-paridade={`${paridade}`}>
       
-      <div className={styles.mainInfos}>
+        <div className={styles.mainInfos}>
         
-        <div className={styles.titleContainer}>
-          <h3 className={styles.title} title={titulo}>{titulo}</h3>
-          <div className={styles.area_regiao}>
-            <p>{area}</p> 
-            <p>-</p> 
-            <p></p>
+          <div className={styles.titleContainer}>
+            <h3 className={styles.title} title={titulo}>{titulo}</h3>
+            <div className={styles.area_regiao}>
+              <p>{area}</p> 
+              <p>-</p> 
+              <p></p>
+            </div>
+            <a href={link} target="_blank" className={styles.link}>
+              <Image src={linkIcon} alt="link icon" title={link}/>
+            </a>
           </div>
-          <a href={link} target="_blank" className={styles.link}>
-            <Image src={linkIcon} alt="link icon" title={link}/>
-          </a>
-        </div>
         
         <ul className={styles.infos}>
           <li className={styles.salarioContainer}><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
@@ -76,10 +76,10 @@ function card({
       </div>
 
       <ExpandedCard 
-        sumary={sumary}
+        summary={summary}
         keywords={keywords}
-        match={match}
-        search={search}
+        matches={matches}
+        searchwords={searchwords}
         weknesses={weknesses}
       />
       

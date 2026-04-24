@@ -17,7 +17,7 @@ const Item = ({indice, value}: {indice: string, value: number}) =>{
 async function header(){
 
   const dados = await getInfos() as Data[]
-  console.log(dados)
+  // console.log(dados)
 
   return (
     <header id={styles.header}>
