@@ -32,10 +32,11 @@ function card({
 }: Vancancy) {
   console.log("searchwords")
   console.log(searchwords)
+  const id = Math.random()
   return (
     <>
-      <input className={styles.radionBuntonVac} type="radio" id={titulo} name="vancanciesCards"/>
-      <label htmlFor={titulo} className={styles.cardContainer} data-paridade={`${paridade}`}>
+      <input className={styles.radionBuntonVac} type="radio" id={titulo + id} name="vancanciesCards"/>
+      <label htmlFor={titulo + id} className={styles.cardContainer} data-paridade={`${paridade}`}>
       
         <div className={styles.mainInfos}>
         

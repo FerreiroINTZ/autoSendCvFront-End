@@ -37,7 +37,7 @@ function expandedCard({
         <div className={styles["sumary_match-container"]}>
             <div className={styles.sumary}>
                 <p className={styles.label}>SUMARY</p>
-                <p className={styles.value}>{summary}</p>
+                <p className={styles.value}>{summary || "nao ha summary!"}</p>
             </div>
             <ListBlock vall={matches! || ""} field="match"/>
         </div>
