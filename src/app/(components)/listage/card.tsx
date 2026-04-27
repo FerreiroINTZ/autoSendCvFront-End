@@ -23,6 +23,7 @@ function card({
   empresa,
   dt_publicacao,
   state,
+  acesso,
 
   summary,
   keywords,
@@ -30,8 +31,10 @@ function card({
   searchwords,
   weknesses
 }: Vancancy) {
-  console.log("searchwords")
-  console.log(searchwords)
+  if(acesso != "salvo"){
+    console.log("\x1b[31m acesso")
+    console.log(acesso, "\x1b[m")
+  }
   const id = Math.random()
   return (
     <>
@@ -63,7 +66,7 @@ function card({
           <DownArrow styles={styles}/>
           <div className={styles.wrapper_viewCard_state}>
             <p className={styles.viewCardText}><button>VER MAIS</button></p>
-            <div className={styles.state} data-paridade={paridade}>
+            <div className={`${styles.state} ${styles[`currAcess-${acesso}`]}`}data-paridade={paridade}>
               {["saved", "acessed", "applyed"].map((x, index) =>
               index <= state - 1
               ? <div key={index} className={styles[x]}></div>

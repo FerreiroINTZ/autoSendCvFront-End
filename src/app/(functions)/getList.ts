@@ -38,6 +38,7 @@ export type Vancancy = OtherInfos & {
     link: string,
     empresa: string,
     state: number,
+    acesso: string
 }
 
 export default async function getListage() {
@@ -72,6 +73,7 @@ export default async function getListage() {
           link: "https://uol.com",
           empresa: "microsoft",
           state: randState,
+          acesso: "",
 
           summary: "Boa vaga geral, mas não específica para sua stack. Alem do mais, acho melhor procurar em outro lugar, ja quee a vaga nao condiz com sua stack, parca",
           searchwords: ["Node", "Nest", "SASS", "React", "Next"],

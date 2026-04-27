@@ -4,16 +4,18 @@ import CardComp from "../../(components)/listage/card"
 import ActionBtn from "./fixedContent/fixedContentMain"
 import getVacancies from "../../(functions)/getList"
 
+import {Vancancy} from "../../(functions)/getList"
+
 async function page() {
 
   const data = await getVacancies()
-  console.log(data)
-  console.log("slw")
+  // console.log(data)
+  // console.log("slw")
 
   return (
     <>
     <div id={styles.vacanciesContainer}>
-      {data.map((x, index) =>{
+      {data.map((x: any, index) =>{
         // console.log("================")
         // console.log(x.title)
         return(
@@ -34,6 +36,8 @@ async function page() {
           keywords={x?.expanded?.keywords}
           searchwords={x?.expanded?.searchwords}
           weknesses={x?.expanded?.weknesses}
+          acesso={x.acesso}
+          // acesso={x.}
           />)
         }
       )}

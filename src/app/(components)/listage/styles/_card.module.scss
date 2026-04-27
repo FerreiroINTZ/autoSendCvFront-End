@@ -33,6 +33,26 @@
         }
     }
 
+    .currAcess-salvo .saved{
+        opacity: 1 !important;
+    }
+
+    .currAcess-acessado{
+        .saved, .acessed{
+            opacity: 1 !important;
+        }
+    }
+
+    .currAcess-aplicado{
+        .saved, .acessed, .applyed{
+            opacity: 1 !important;
+        }
+    }
+
+    // 360
+    // 361
+    // 362
+
     @include cardLight;
     @include mainInfo;
     @include expandedInfo;
