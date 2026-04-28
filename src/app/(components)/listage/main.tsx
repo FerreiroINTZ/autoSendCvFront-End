@@ -20,7 +20,8 @@ async function page() {
         // console.log(x.title)
         return(
         <CardComp 
-          key={index}
+          key={x.id}
+          id={x.id}
           titulo={x.titulo}
           area={x.area}
           regiao={x.regiao}

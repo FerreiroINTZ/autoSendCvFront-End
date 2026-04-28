@@ -3,8 +3,8 @@ import styles from "../styles/_card.module.scss"
 import {OtherInfos} from "../../../(functions)/getList"
 
 const ListBlock = ({vall, field}: {vall: string[] | string, field: string}) =>{
-    console.log(field)
-    console.log(typeof vall)
+    // console.log(field)
+    // console.log(typeof vall)
     return(
         <>
             <div className={styles[field]}>

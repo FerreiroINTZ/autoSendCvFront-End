@@ -5,6 +5,7 @@ import {Vancancy} from "../../(functions)/getList"
 
 import ExpandedCard from "./expandedCard/expandedCard"
 import DownArrow from "./downArrow"
+import Acessed from "./acessedCard"
 
 import linkIcon from "@icons/link.png"
 import salarioIcon from "@icons/money.png"
@@ -13,6 +14,7 @@ import empresaIcon from "@icons/empresa.png"
 import dt_publIicon from "@icons/dt_publicado.png"
 
 function card({
+  id,
   titulo, 
   paridade,
   area,
@@ -31,15 +33,15 @@ function card({
   searchwords,
   weknesses
 }: Vancancy) {
-  if(acesso != "salvo"){
-    console.log("\x1b[31m acesso")
-    console.log(acesso, "\x1b[m")
-  }
-  const id = Math.random()
+  // console.log("\x1b[31m acesso")
+  // console.log(acesso, "\x1b[m")
+  
+  // id unico para o titulo
+  const titleId = Math.random()
   return (
     <>
-      <input className={styles.radionBuntonVac} type="radio" id={titulo + id} name="vancanciesCards"/>
-      <label htmlFor={titulo + id} className={styles.cardContainer} data-paridade={`${paridade}`}>
+      <input className={styles.radionBuntonVac} type="radio" id={titulo + titleId} name="vancanciesCards"/>
+      <label htmlFor={titulo + titleId} className={styles.cardContainer} data-paridade={`${paridade}`}>
       
         <div className={styles.mainInfos}>
         
@@ -67,10 +69,10 @@ function card({
           <div className={styles.wrapper_viewCard_state}>
             <p className={styles.viewCardText}><button>VER MAIS</button></p>
             <div className={`${styles.state} ${styles[`currAcess-${acesso}`]}`}data-paridade={paridade}>
-              {["saved", "acessed", "applyed"].map((x, index) =>
+              {["salvo", "acessado", "aplicado"].map((x, index) =>
               index <= state - 1
-              ? <div key={index} className={styles[x]}></div>
-              : <div key={index} className={`${styles[x]} ${styles.erased}`}></div>
+              ? <Acessed id={id as number} acessed={x} key={index}/>
+              : <Acessed id={id as number} acessed={x} key={index} erased={true}/>
               )}
             </div>
           </div>

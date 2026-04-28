@@ -3,50 +3,59 @@
         opacity: .25;
     }
 
+    & div{
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
     &{ // caso nao tenha pariade definida
-        .saved{
+        .salvo{
             background: #7B7B7B;
         }
-        .acessed{
+        .acessado{
             background: #B9B9B9;
         }
-        .applyed{
+        .aplicado{
             background: #DDDDDD;
         }
     }
 
     &[data-paridade="4"]{
-        .saved{
+        .salvo{
             background: #75C85B;
         }
-        .acessed{
+        .acessado{
             background: #54DB48;
         }
-        .applyed{
+        .aplicado{
             background: #40DD82;
         }
     }
 
     &[data-paridade="3"]{
-        .saved{
+        .salvo{
             background: #5B82C8;
         }
-        .acessed{
+        .acessado{
             background: #4877DB;
         }
-        .applyed{
+        .aplicado{
             background: #405ADD;
         }
     }
 
     &[data-paridade="2"]{
-        .saved{
+        .salvo{
             background: #C8C85B;
         }
-        .acessed{
+        .acessado{
             background: #DBA848;
         }
-        .applyed{
+        .aplicado{
             background: #DD7C40;
         }
     }
@@ -55,13 +64,13 @@
         *{
             background: orange;
         }
-        .saved{
+        .salvo{
             background: #C85B5B;
         }
-        .acessed{
+        .acessado{
             background: #DB4848;
         }
-        .applyed{
+        .aplicado{
             background: #DD4040;
         }
     }

@@ -11,7 +11,7 @@
         min-height: $size;
         height: $size;
         max-height: $size;
-        background: red;
+        // background: red;
     }
 }
 
@@ -33,18 +33,18 @@
         }
     }
 
-    .currAcess-salvo .saved{
+    .currAcess-salvo .salvo{
         opacity: 1 !important;
     }
 
     .currAcess-acessado{
-        .saved, .acessed{
+        .salvo, .acessado{
             opacity: 1 !important;
         }
     }
 
     .currAcess-aplicado{
-        .saved, .acessed, .applyed{
+        .salvo, .acessado, .aplicado{
             opacity: 1 !important;
         }
     }

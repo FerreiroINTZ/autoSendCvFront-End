@@ -2,7 +2,7 @@ import React from 'react'
 
 function not_found() {
   return (
-    <div>
+    <div id="notFoundContainer">
         <h1>rota errada!</h1>
         <p>Volte para alguma dessas paginas: </p>
         <br />

@@ -2,6 +2,7 @@ import fs from "fs";
 
 // os tipos do card de expansao
 export type OtherInfos = {
+  id?: number,
   summary?: string, 
   keywords?: string[],
   matches?: string[]
@@ -57,6 +58,7 @@ export default async function getListage() {
         const randNum = Math.abs(Math.ceil(Math.random() * 4) - (4 + 1))
         const randState = Math.abs(Math.ceil(Math.random() * 3) - (3 + 1))
         const obj: Vancancy = {
+          id: 20,
           titulo: `vaga ${i}`,
           area: "slw",
           regiao: "campinas",
@@ -98,7 +100,7 @@ export default async function getListage() {
   const dados: VacancyAPI[] = await resp3.json()
 
   // const data = await resp2();
-  console.log(dados)
+  // console.log(dados)
 
   return dados;
 }
