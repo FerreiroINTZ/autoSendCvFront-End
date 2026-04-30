@@ -25,7 +25,7 @@ export type GeneralInfos = {
   }
   
 // apenas para os dados pegos da API
-type VacancyAPI = GeneralInfos & { expanded: OtherInfos }
+export type VacancyAPI = GeneralInfos & { expanded: OtherInfos }
 
 // os dados usados nos componentes
 export type Vancancy = OtherInfos & {
