@@ -12,6 +12,9 @@ import salarioIcon from "@icons/money.png"
 import siteIcon from "@icons/site.png"
 import empresaIcon from "@icons/empresa.png"
 import dt_publIicon from "@icons/dt_publicado.png"
+import disponivelIcon from "@icons/like.png"
+import indisponivelIcon from "@icons/unlike.png"
+import auditIcon from "@icons/auditIcon.png"
 
 function card({
   id,
@@ -26,6 +29,8 @@ function card({
   dt_publicacao,
   state,
   acesso,
+  disponibilidade,
+  last_disp_analysis,
 
   summary,
   keywords,
@@ -60,8 +65,26 @@ function card({
         <ul className={styles.infos}>
           <li className={styles.salarioContainer}><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
           <li className={styles.empresaContainer} title={empresa}><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
+          <li 
+            className={disponibilidade 
+              ? styles.disponivel 
+              : styles.indisponivel}>
+              <Image 
+                src={disponibilidade 
+                  ? disponivelIcon 
+                  : indisponivelIcon} 
+                alt="" />
+              <p>{
+                disponibilidade 
+                  ? "DISPONIVEL" 
+                  : "INDISPONIVEL"}</p>
+          </li>
           <li className={styles.siteContainer}><Image src={siteIcon} alt="" /><p>{site}</p></li>
           <li className={styles.dt_publicacaoContainer}><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
+          <li>
+            <Image src={auditIcon} alt="" />
+            <p>{"nada"}</p>
+          </li>
         </ul>
         
         <div className={styles.sideInfos_actions}>

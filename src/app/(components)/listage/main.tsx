@@ -6,6 +6,14 @@ import getVacancies from "../../(functions)/getList"
 
 import {Vancancy} from "../../(functions)/getList"
 
+const RenderComp = () =>{
+  return(
+  <>
+  
+  </>
+)
+}
+
 async function page() {
 
   const data = await getVacancies()
@@ -15,33 +23,10 @@ async function page() {
   return (
     <>
     <div id={styles.vacanciesContainer}>
-      {data.map((x: any, index) =>{
-        // console.log("================")
-        // console.log(x.title)
-        return(
-        <CardComp 
-          key={x.id}
-          id={x.id}
-          titulo={x.titulo}
-          area={x.area}
-          regiao={x.regiao}
-          salario={x.salario}
-          site={x.site}
-          dt_publicacao={x.dt_publicacao}
-          paridade={x.paridade}
-          link={x.link}
-          empresa={x.empresa}
-          state={x.state}
-          summary={x?.expanded?.summary}
-          matches={x?.expanded?.matches}
-          keywords={x?.expanded?.keywords}
-          searchwords={x?.expanded?.searchwords}
-          weknesses={x?.expanded?.weknesses}
-          acesso={x.acesso}
-          // acesso={x.}
-          />)
-        }
-      )}
+      {data.length
+      ? <>Sim</>
+      : <h2 id="no_data_title">Nao ha dados <br/> Disponiveis</h2>
+    }
     </div>
       <ActionBtn />
       </>

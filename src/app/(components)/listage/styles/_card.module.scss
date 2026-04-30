@@ -49,9 +49,14 @@
         }
     }
 
-    // 360
-    // 361
-    // 362
+    .disponivel{
+        color: #529349 !important;
+        // background: blue;
+    }
+    .indisponivel{
+        color: #934949 !important; 
+        // background: red;
+    }
 
     @include cardLight;
     @include mainInfo;

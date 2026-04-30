@@ -30,3 +30,14 @@ body{
 #notFoundContainer{
   background: red !important;
 }
+
+#no_data_title{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  color: #404040;
+  user-select: none;
+}
