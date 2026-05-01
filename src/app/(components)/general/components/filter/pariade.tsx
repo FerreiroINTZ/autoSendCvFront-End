@@ -1,4 +1,8 @@
+"use client"
+
 import styles from "@generalStyles/filters/paridade.module.scss"
+
+import {useFormContext} from "react-hook-form"
 
 type Paridade = {
     paridade: string,
@@ -9,21 +13,33 @@ type Paridade = {
 
 const Card = ({paridade, qtd}: Paridade) =>{
 
+    const {register}= useFormContext()
+    
     const vall = paridade.charAt(0).toUpperCase() + paridade.slice(1)
 
     return(
         <li className={styles.card} data-paridade={paridade}>
-            <div></div>
-            <p>
-                <span className={styles.paridadeValue}>{vall}</span>
-                <span className={styles.paridadeQtd}>{qtd}</span></p>
+            <input 
+                id={`paridade-${paridade}`} 
+                type="checkbox" 
+                value={paridade}
+                {...register(`paridades`)} />
+            <label 
+                htmlFor={`paridade-${paridade}`} 
+                className={styles.option}>
+                <div className={styles.circleANDlabel}>
+                    <div className={styles.circle}></div>
+                    <span className={styles.paridadeValue}>{vall}</span>
+                </div>
+                <span className={styles.paridadeQtd}>{qtd}</span>
+            </label>
         </li>
     )
 }
 
-async function pariade({mark}: {mark: string}) {
+function pariade({mark}: {mark: string}) {
 
-    const paridades = async (): Promise<Paridade[]> => new Promise((resolve) =>{
+    const paridades = ():Paridade[] => {
         const slw = [
             {
                 paridade: "perfeito",
@@ -42,10 +58,10 @@ async function pariade({mark}: {mark: string}) {
                 qtd: 10
             },
         ]
-        resolve(slw)
-    })
+        return slw
+    }
 
-    const data = await paridades()
+    const data = paridades()
 
     return (
     <div id={styles.paridadeContainer} className={mark}>

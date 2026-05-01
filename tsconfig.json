@@ -22,7 +22,8 @@
       "@/*": ["./src/*"],
       "@icons/*": ["./public/slw/*"],
       "@generalStyles/*": ["./src/app/(components)/general/styles/*"],
-      "@serverFunctions/*": ["./src/app/(functions)/*"]
+      "@serverFunctions/*": ["./src/app/(functions)/*"],
+      "@Types/*": ["./src/app/(types)/*"]
     }
   },
   "include": [

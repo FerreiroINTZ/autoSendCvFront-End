@@ -1,5 +1,7 @@
 import styles from "@generalStyles/filters/sites.module.scss"
 
+import {useFormContext} from "react-hook-form"
+
 type Sites = {
     site: string,
     qtd: number
@@ -9,22 +11,31 @@ type Sites = {
 
 const Card = ({site, qtd}: Sites) =>{
 
+    const {register} = useFormContext()
+
     const siteFormatado = site.charAt(0).toUpperCase() + site.slice(1)
 
     return(
         <li className={styles.card} data-site={site}>
-            <div></div>
-            <p>
-                <span className={styles.siteValue}>{siteFormatado}</span>
+            <input 
+                type="checkbox" 
+                id={`site-${site}`}
+                value={site} 
+                {...register(`sites`)}/>
+            <label htmlFor={`site-${site}`}>
+                <div className={styles.iconANDlabel}>
+                    <div className={styles.icon}></div>
+                    <span className={styles.siteValue}>{siteFormatado}</span>
+                </div>
                 <span className={styles.siteQtd}>{qtd}</span>
-            </p>
+            </label>
         </li>
     )
 }
 
-async function sites({mark}: {mark: string}) {
+function sites({mark}: {mark: string}) {
 
-    const sites = async (): Promise<Sites[]> => new Promise((resolve) =>{
+    const sites = (): Sites[] =>{
         const slw = [
             {
                 site: "linkedin",
@@ -43,10 +54,10 @@ async function sites({mark}: {mark: string}) {
                 qtd: 10
             },
         ]
-        resolve(slw)
-    })
+        return slw
+    }
 
-    const data = await sites()
+    const data = sites()
 
     return (
     <div id={styles.sitesContainer} className={mark}>

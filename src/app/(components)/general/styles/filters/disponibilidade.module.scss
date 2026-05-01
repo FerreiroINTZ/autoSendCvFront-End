@@ -1,6 +1,6 @@
-@use "./filterElements" as *;
+// @use "./filterElements" as *;
 
-#sitesContainer{
+#disponibilidade{
     // background: red;
 
     #title{
@@ -24,12 +24,32 @@
         flex-direction: column;
         gap: 10px;
         list-style: none;
-        @include site_color;
+        // @include site_color;
+
+        #disponiveis{
+            color: #79B094 !important;
+
+            .light{
+                background: #51A97D;
+            }
+        }
+
+        #indisponiveis{
+            color: #B07979 !important;
+
+            .light{
+                background: #A95151;
+            }
+        }
 
         .card label{
             display: flex;
+            justify-content: space-between;
             align-items: center;
             gap: 10px;
+            position: relative;
+            font-style: italic;
+            overflow: hidden;
             background: #2C2C2C;
             border: 2px solid #3C3C3C;
             border-radius: 5px;
@@ -48,20 +68,23 @@
                 opacity: .6 ;
             }
 
-            .iconANDlabel{
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                
-                .icon{
-                    width: 15px;
-                    height: 15px;
-                    background-size: contain;
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                }
-            }
+            .light{
+                position: absolute;
+                background: #5E6361;
+                z-index: -1;
+                transform: translateY(-50%);
+                top: 50%;
+                left: 0px;
 
+                $size: 100px;
+                width: $size;
+                height: $size;
+                border-radius: $size;
+                filter: blur(80);
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
 
             &{
                 display: flex;

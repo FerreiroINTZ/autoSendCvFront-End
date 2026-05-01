@@ -1,7 +1,7 @@
 import styles from "./main.module.scss"
 import Header from "./components/header"
 import TitleComp from "./components/title"
-import FiltersComp from "./components/filter/filter"
+import FiltersComp from "./components/filter/filterMain"
 
 async function main({children}: {children: React.ReactNode}) {
   

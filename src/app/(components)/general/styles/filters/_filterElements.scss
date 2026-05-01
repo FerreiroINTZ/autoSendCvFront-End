@@ -1,21 +1,21 @@
 @mixin paridade_colors{
     [data-paridade="perfeito"]{
-        div{
+        .circle{
             background: #87D198;
         }
     }
     [data-paridade="bom"]{
-        div{
+        .circle{
             background: #6592C4;
         }
     }
     [data-paridade="ruim"]{
-        div{
+        .circle{
             background: #E48C4E;
         }
     }
     [data-paridade="pessimo"]{
-        div{
+        .circle{
             background: #E15656;
         }
     }
@@ -24,22 +24,22 @@
 @mixin site_color{
     $path: "../../../../../../public/icons";
     [data-site="linkedin"]{
-        div{
+        .icon{
             background-image: URL("#{$path}/linkedin.png");
         }
     }
     [data-site="indeed"]{
-        div{
+        .icon{
             background-image: URL("#{$path}/indeed.png");
         }
     }
     [data-site="infojobs"]{
-        div{
+        .icon{
             background-image: URL("#{$path}//infojobs_logo.jpeg");
         }
     }
     [data-site="catho"]{
-        div{
+        .icon{
             background-image: URL("#{$path}/linkedin.png");
         }
     }
