@@ -2,12 +2,17 @@ import styles from "../../styles/viewCardSrtyles/viewCardStyles.module.scss"
 import {ViewCard} from "@Types/viewCardTypes"
 
 import Image from "next/image"
+import Link from "next/link"
+
 import salarioIcon from "@icons/money.png"
-import empresaIcon from "@icons/empresa.png"
-import siteIcon from "@icons/site.png"
-import jobIdIcon from "@icons/jonbIdIcon.png"
+import empresaIcon from "@icons/biggerIcons/empresa.png"
+import siteIcon from "@icons/biggerIcons/site.png"
+import jobIdIcon from "@icons/biggerIcons/jonbIdIcon.png"
 import favoritedIcon from "@icons/favoritedIcon.png"
 import notFavoritedIcon from "@icons/notFavoritedIcon.png"
+import acessivelIcon from "@icons/biggerIcons/bigLikeIcon.png"
+import naoAcessivelIcon from "@icons/biggerIcons/bigUnlikeIcon.png"
+import linkIcon from "@icons/link.png"
 
 function title(
   {
@@ -19,16 +24,20 @@ function title(
     favoritado,
     jobId,
     last_check,
-    regiao,
-    salario
+    cidade,
+    salario,
+    link
   }: ViewCard) {
   return (
     <div 
       id={styles.mainInfoContainer}>
       <div id={styles.titleContainer}>
-        <h2>{titulo}</h2>
+        <h2 title={titulo}>{titulo}</h2>
         <div id={styles.area_regiao}>
-          <p>{area}</p> - <p>{regiao}</p>
+          <p title={area}>{area}</p> <span>-</span> <p title={cidade}>{cidade}</p>
+          <Link id={styles.link} href={link}>
+            <Image src={linkIcon} alt="icone de link" />
+          </Link>
         </div>
       </div>
 
@@ -59,7 +68,7 @@ function title(
             className={styles.img} 
             src={jobIdIcon} 
             alt="icone de jobId" />
-          <p>{"JOBiD"}</p>
+          <p>{jobId}</p>
         </li>
       </ul>
 
@@ -72,6 +81,16 @@ function title(
           alt="botao de favoritos"/>
         <p>{favoritado ? "FAVORITADO" : "NAO FAVORITADO"}</p>
       </button>
+
+      <div id={styles.acessivelContainer}>
+        <div id={styles.icon} data-disponibilidade={disponibilidade}>
+          <Image 
+            src={disponibilidade ? acessivelIcon : naoAcessivelIcon} 
+            alt="icone sobre acessibilidade da vaga" />
+            <span>{disponibilidade ? "DISPONIVEL" : "INDISPONIVEL"}</span>
+        </div>
+        <p id={styles.last_check}>{"4 dias atras"}</p>
+      </div>
     </div>
   )
 }

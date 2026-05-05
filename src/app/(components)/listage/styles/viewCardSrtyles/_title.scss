@@ -1,12 +1,17 @@
 @mixin title{
     #mainInfoContainer{
-        // display: grid;
+        display: grid;
+        grid-template-areas: 
+        "title title"
+        "infos acessivel"
+        "favorito acessivel";
         
         #titleContainer{
             height: fit-content;
             display: flex;
             gap: 20px;
             font-style: italic;
+            grid-area: title;
             
             h2{
                 text-wrap: nowrap;
@@ -31,6 +36,27 @@
                     text-wrap: nowrap;
                     text-overflow: ellipsis;
                 }
+
+                #link{
+                    $linkSizes: 20px;
+                    width: $linkSizes;
+                    height: $linkSizes;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: .3s;
+
+                    &:hover{
+                        transform: scale(1.025);
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
             }
         }
 
@@ -43,6 +69,7 @@
             width: fit-content;
             row-gap: 10px;
             margin-top: 20px;
+            grid-area: infos;
 
             li{
                 display: flex;
@@ -80,12 +107,14 @@
             gap: 10px;
             border-radius: 3px;
             border: 3px solid #D8B451;
-            color: #D8B451;
+            color: #F2D997;
             background: none;
             width: fit-content;
-            padding: 10px 50px 10px 10px;
+            padding: 10px 150px 10px 25px;
             cursor: pointer;
             transition: .3s;
+            grid-area: favorito;
+            user-select: none;
 
             &:hover{
                 transform: scale(1.025);
@@ -93,6 +122,66 @@
 
             &[data-favoritado="true"]{
                 background: #413D2F;
+            }
+        }
+
+        #acessivelContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            grid-area: acessivel;
+            user-select: none;
+
+            #icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                $sizes: 125px;
+
+                width: $sizes;
+                height: $sizes;
+                
+                img{
+                    width: 53px;
+                    height: 53px;
+                }
+
+                span{
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-style: italic;
+                }
+
+                &[data-disponibilidade="true"]{
+                    background: #2C3F34;
+                    border: 3px solid #476C56;
+                    border-radius: 10px;
+
+                    span{
+                        color: #4F7D62;
+                    }
+                }
+
+                &[data-disponibilidade="false"]{
+                    background: #3F2C2C;
+                    border: 3px solid #6C4747;
+                    border-radius: 10px;
+
+                    span{
+                        color: #7D4F4F;
+                    }
+                }
+
+            }
+
+            p{
+                margin-top: 10px;
+                font-size: 18px;
+                font-style: italic;
+                font-weight: 600;
+                color: #C0C0C0
             }
         }
     }

@@ -60,13 +60,14 @@ function viewCardComp({data}: {data: any}) {
                     titulo={data.titulo}
                     salario={data.salario}
                     empresa={data.empresa}
-                    site={data.site}
-                    jobId={data.jobId}
+                    site={data.plataforma}
+                    jobId={data.jobid}
                     favoritado={data.favoritado}
-                    disponibilidade={data.disp}
-                    last_check={data.last_check}
+                    disponibilidade={data.disponibilidade}
+                    last_check={data.last_disp_analysis}
                     area={data.area}
-                    regiao={data.regiao}
+                    cidade={data.cidade}
+                    link={data.link}
                     />
         </div>
     </div>

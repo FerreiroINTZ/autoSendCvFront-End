@@ -4,9 +4,10 @@ export type ViewCard = {
     area: string,
     site: string,
     disponibilidade: boolean,
-    regiao: string,
+    cidade: string,
     favoritado: boolean,
     last_check: string,
     jobId: string,
     salario: string,
+    link: string
 }
