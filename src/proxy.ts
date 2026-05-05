@@ -4,10 +4,11 @@ import {
 }
 from "next/server"
 
+// por enqquanto ele so serve para setar um header personalizado contendo a rota atual
 export async function proxy(req: NextRequest){
-    const url = new URL(req.url).pathname
+    const url = new URL(req.url)
     const resp = new Headers()
-    resp.set("x-pathname", url)
+    resp.set("x-pathname", url.href)
     return NextResponse.next({headers: resp})
 }
 

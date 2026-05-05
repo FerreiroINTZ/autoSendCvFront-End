@@ -14,7 +14,7 @@ function final({mark}: {mark: string}) {
   return (
     <div id={styles.filterActions} className={mark}>
         <div id={styles.mainActionsContainer}>
-            <button id={styles.clearFilters} onClick={clear}>REESETAR</button>
+            <button id={styles.clearFilters} onClick={clear}>RESETAR</button>
             <button id={styles.applyFilters}>FILTRAR</button>
         </div>
         <button id={styles.goToTop}>SUBIR</button>

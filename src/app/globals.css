@@ -41,3 +41,12 @@ body{
   color: #404040;
   user-select: none;
 }
+
+#nk{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: red;
+  width: 500px;
+  height: 300px;
+}

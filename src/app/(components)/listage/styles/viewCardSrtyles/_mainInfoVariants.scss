@@ -1,0 +1,108 @@
+@mixin paridadeFaixa{
+    position: relative;
+
+    &::after{
+            content: '';
+            width: 100px;
+            height: 26px;
+            position: absolute;
+            top: 10px;
+            right: -26px;
+            rotate: 45deg;
+        }
+
+    &::before{
+            content: '';
+            width: 175px;
+            height: 20px;
+            position: absolute;
+            top: 32px;
+            right: -37px;
+            rotate: 45deg;
+        }
+
+    &[data-paridade="1"]{
+        &::after{
+            background: radial-gradient(circle at 50% -10%, #DF8383 10%, #C71616 50px);
+        }
+
+        &::before{
+            background: linear-gradient(
+                -45deg,
+                #DD4040,
+                #E06B6B 17%,
+                #D33333 38%,
+                #DB7070 76%,
+                #DD4040 100%
+            );
+        }
+    }
+
+    &[data-paridade="2"]{
+        &::after{
+            background: radial-gradient(circle at 50% -10%, #DFC683 10%, #C79816 50px);
+        }
+
+        &::before{
+            background: linear-gradient(
+                -45deg,
+                #DDB340,
+                #E0C16B 17%,
+                #D3A833 38%,
+                #DBBE70 76%,
+                #DDB340 100%
+            );
+        }
+    }
+
+    &[data-paridade="3"]{
+        &::after{
+            background: radial-gradient(circle at 50% -10%, #83A3DF 10%, #1654C7 50px);
+        }
+
+        &::before{
+            background: linear-gradient(
+                -45deg,
+                #4077DD,
+                #6B94E0 17%,
+                #336BD3 38%,
+                #7095DB 76%,
+                #4077DD 100%
+            );
+        }
+    }
+
+    &[data-paridade="4"]{
+        &::after{
+            background: radial-gradient(circle at 50% -10%, #83DFA9 10%, #16C760 50px);
+        }
+
+        &::before{
+            background: linear-gradient(
+                -45deg,
+                #40DD82,
+                #6BE09C 17%,
+                #33D376 38%,
+                #70DB9D 76%,
+                #40DD82 100%
+            );
+        }
+    }
+
+    &[data-paridade="0"]{
+        &::after{
+            background: radial-gradient(circle at 50% -10%, #B1B1B1 10%, #6E6E6E 50px);
+        }
+
+        &::before{
+            background: linear-gradient(
+                -45deg,
+                #8F8F8F,
+                #A6A6A6 17%,
+                #838383 38%,
+                #A6A6A6 76%,
+                #8E8E8E 100%
+            );
+        }
+    }
+}

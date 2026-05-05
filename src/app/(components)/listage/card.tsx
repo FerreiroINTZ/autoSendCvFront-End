@@ -6,6 +6,7 @@ import {Vancancy} from "../../(functions)/getList"
 import ExpandedCard from "./expandedCard/expandedCard"
 import DownArrow from "./downArrow"
 import Acessed from "./acessedCard"
+import ViewMoreComp from "./viewCard/viewMoreComp"
 
 import linkIcon from "@icons/link.png"
 import salarioIcon from "@icons/money.png"
@@ -38,8 +39,11 @@ function card({
   searchwords,
   weknesses
 }: Vancancy) {
+  const date = new Date(last_disp_analysis)
+  const dateFormated = `${String(date.getDay()).padStart(2, "0")}/${String(date.getMonth()).padStart(2, "0")}/${date.getFullYear()}`
+  
   // console.log("\x1b[31m acesso")
-  // console.log(acesso, "\x1b[m")
+  // console.log(searchwords, "\x1b[m")
   
   // id unico para o titulo
   const titleId = Math.random()
@@ -83,14 +87,14 @@ function card({
           <li className={styles.dt_publicacaoContainer}><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
           <li>
             <Image src={auditIcon} alt="" />
-            <p>{"nada"}</p>
+            <p>{dateFormated}</p>
           </li>
         </ul>
         
         <div className={styles.sideInfos_actions}>
           <DownArrow styles={styles}/>
           <div className={styles.wrapper_viewCard_state}>
-            <p className={styles.viewCardText}><button>VER MAIS</button></p>
+            <p className={styles.viewCardText}><ViewMoreComp id={id!} /></p>
             <div className={`${styles.state} ${styles[`currAcess-${acesso}`]}`}data-paridade={paridade}>
               {["salvo", "acessado", "aplicado"].map((x, index) =>
               index <= state - 1
