@@ -1,14 +1,41 @@
 import styles from "../../styles/viewCardSrtyles/viewCardStyles.module.scss"
 
-function acess_date_component({acesso}: {acesso: string}) {
+import {useRouter} from "next/navigation"
+
+function acess_date_component({acesso, id}: {acesso: string, id: number}) {
+
+    const router = useRouter()
+
+    async function changeAcessedState(state: string){
+        if(state == acesso){
+            return
+        }
+        const resp = await fetch(`http://localhost:3000/change?id=${id}&state=${state}`, {
+                    method: "GET",
+                    mode: "cors"
+                })
+        const data = await resp.text()
+        console.log(data)
+        router.refresh()
+    }
+
   return (
     <div id={styles.acess_dates_styles}>
         <div id={styles.acessContainer}>
             <h3>ESTADO: </h3>
             <div id={styles.acessCards} data-acesso={acesso}>
-                <span id={styles.salvoCard}></span>
-                <span id={styles.acessadoCard}></span>
-                <span id={styles.aplicadoCard}></span>
+                <span 
+                    title="salvo"
+                    onClick={() => changeAcessedState("salvo")} 
+                    id={styles.salvoCard}></span>
+                <span
+                    title="acessado"
+                    onClick={() => changeAcessedState("acessado")}
+                    id={styles.acessadoCard}></span>
+                <span
+                    title="aplicado"
+                    onClick={() => changeAcessedState("aplicado")}
+                    id={styles.aplicadoCard}></span>
             </div>
         </div>
 

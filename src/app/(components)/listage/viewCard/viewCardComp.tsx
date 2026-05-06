@@ -74,7 +74,10 @@ function viewCardComp({data}: {data: any}) {
                     link={data.link}
                     />
                     
-                <Acess_Dates_Component acesso={data.acesso}/>
+                <Acess_Dates_Component 
+                    id={data.id} 
+                    acesso={data.acesso}
+                    />
 
                 {/* <SearchWordsComp /> */}
 
