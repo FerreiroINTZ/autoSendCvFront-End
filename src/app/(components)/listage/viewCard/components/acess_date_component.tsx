@@ -41,6 +41,16 @@ function acess_date_component({acesso, id}: {acesso: string, id: number}) {
 
         <div id={styles.datesContainer}>
             <h3>DATAS:</h3>
+            <div id={styles.datesWrapper}>
+                <p>
+                    <span>Registro:</span> 
+                    <span>{"10/02/2026"}</span>
+                </p>
+                <p>
+                    <span>Publicado:</span> 
+                    <span>{"02/05.2026"}</span>
+                </p>
+            </div>
         </div>
     </div>
   )
