@@ -1,4 +1,6 @@
 @use "./title" as *;
+@use "./desc" as *;
+
 @use "./mainInfoVariants" as *;
 
 #viewCardContainer{
@@ -29,9 +31,10 @@
         overflow: hidden;
 
         @include title;
+        @include descStyle;
     }
 }
 
 .viewContainerAnimation, .viewContainer{
-    opacity: 0;
+    opacity: .3;
 }

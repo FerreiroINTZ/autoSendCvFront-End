@@ -35,7 +35,7 @@ function title(
         <h2 title={titulo}>{titulo}</h2>
         <div id={styles.area_regiao}>
           <p title={area}>{area}</p> <span>-</span> <p title={cidade}>{cidade}</p>
-          <Link id={styles.link} href={link}>
+          <Link id={styles.link} href={link} target="_blank">
             <Image src={linkIcon} alt="icone de link" />
           </Link>
         </div>

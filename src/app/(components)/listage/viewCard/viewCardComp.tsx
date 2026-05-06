@@ -7,6 +7,7 @@ import gsap from "gsap"
 import {useEffect} from "react"
 
 import Title from "./components/title"
+import FullDescription from "./components/fullDescription"
 
 
 function viewCardComp({data}: {data: any}) {
@@ -69,6 +70,8 @@ function viewCardComp({data}: {data: any}) {
                     cidade={data.cidade}
                     link={data.link}
                     />
+                    
+                <FullDescription desc={data.descricao}/>
         </div>
     </div>
   )
