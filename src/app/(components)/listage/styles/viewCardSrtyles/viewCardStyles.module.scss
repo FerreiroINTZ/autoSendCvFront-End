@@ -1,7 +1,10 @@
 @use "./title" as *;
 @use "./desc" as *;
+@use "./justificativa" as *;
+@use "./infos" as *;
 
 @use "./mainInfoVariants" as *;
+
 
 #viewCardContainer{
     display: flex;
@@ -32,6 +35,8 @@
 
         @include title;
         @include descStyle;
+        @include justificativaStyles;
+        @include innfosStyle;
     }
 }
 

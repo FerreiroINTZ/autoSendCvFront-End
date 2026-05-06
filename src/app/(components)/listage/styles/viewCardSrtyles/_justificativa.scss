@@ -1,0 +1,15 @@
+@mixin justificativaStyles {
+  #justificativaContainer {
+    margin-top: 40px;
+
+    h3 {
+      font-size: 38px;
+      color: #e0e0e0;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 26px;
+    }
+  }
+}

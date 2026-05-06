@@ -8,6 +8,8 @@ import {useEffect} from "react"
 
 import Title from "./components/title"
 import FullDescription from "./components/fullDescription"
+import InfosComp from "./components/infos"
+import JustificativaComp from "./components/justificativa"
 
 
 function viewCardComp({data}: {data: any}) {
@@ -71,6 +73,16 @@ function viewCardComp({data}: {data: any}) {
                     link={data.link}
                     />
                     
+                {/* <SearchWordsComp /> */}
+
+                <InfosComp 
+                    matches={data.matches}
+                    summary={data.summary}
+                    weaknesses={data.weaknesses}
+                    />
+
+                <JustificativaComp justificativa={data.justificativa}/>
+                
                 <FullDescription desc={data.descricao}/>
         </div>
     </div>
