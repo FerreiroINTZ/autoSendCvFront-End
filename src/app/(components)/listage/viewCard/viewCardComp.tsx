@@ -10,6 +10,7 @@ import Title from "./components/title"
 import FullDescription from "./components/fullDescription"
 import InfosComp from "./components/infos"
 import JustificativaComp from "./components/justificativa"
+import Acess_Dates_Component from "./components/acess_date_component"
 
 
 function viewCardComp({data}: {data: any}) {
@@ -73,6 +74,8 @@ function viewCardComp({data}: {data: any}) {
                     link={data.link}
                     />
                     
+                <Acess_Dates_Component acesso={data.acesso}/>
+
                 {/* <SearchWordsComp /> */}
 
                 <InfosComp 

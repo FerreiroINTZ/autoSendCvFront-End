@@ -1,0 +1,72 @@
+@mixin acess_dates_styles{
+    #acess_dates_styles{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 60px;
+        // background: red;
+
+        font-style: italic;
+
+        h3{
+            font-size: 30px;
+            color: #E0E0E0;
+        }
+
+        p{
+            font-size: 20px;
+            color: #C0C0C0;
+        }
+
+        #acessContainer{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            // background: blue;
+
+            #acessCards{
+                display: flex;
+                // background: pink;
+
+                #salvoCard, #acessadoCard, #aplicadoCard{
+                    opacity: .2;
+                } 
+                
+                #salvoCard{
+                    background: #75C85B;
+                }
+
+                #acessadoCard{
+                    background: #54DB48;
+                }
+
+                #aplicadoCard{
+                    background: #40DD82;
+                }
+
+                &[data-acesso="salvo"]{
+                    #salvoCard{
+                        opacity: 1;
+                    }
+                }
+
+                &[data-acesso="acessado"]{
+                    #salvoCard, #acessadoCard{
+                        opacity: 1;
+                    }
+                }
+
+                &[data-acesso="aplicado"]{
+                    #salvoCard, #acessadoCard, #aplicadoCard{
+                        opacity: 1;
+                    }
+                }
+
+                span{
+                    width: 180px;
+                    height: 80px;
+                    clip-path: polygon(15% 0%, 0% 100%, 85% 100%, 100% 0%);
+                }
+            }
+        }
+    }
+}

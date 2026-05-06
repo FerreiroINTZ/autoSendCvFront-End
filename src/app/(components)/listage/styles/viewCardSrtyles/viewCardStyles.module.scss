@@ -2,6 +2,7 @@
 @use "./desc" as *;
 @use "./justificativa" as *;
 @use "./infos" as *;
+@use "./acess_dates_styles" as *;
 
 @use "./mainInfoVariants" as *;
 
@@ -37,6 +38,7 @@
         @include descStyle;
         @include justificativaStyles;
         @include innfosStyle;
+        @include acess_dates_styles;
     }
 }
 
