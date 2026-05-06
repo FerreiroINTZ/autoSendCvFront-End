@@ -1,0 +1,67 @@
+#ordemparidade{
+    // background: red;
+
+    #title{
+        font-weight: 900;
+        color: #707070;
+        font-size: 16px;
+    }
+
+    input{
+        display: none;
+    }
+
+    .melhoresStyle{
+        
+        #light{
+            background: #5AB86C;
+        }
+    }
+    
+    .pioresStyle{
+        flex-direction: row-reverse;
+
+        #light{
+            background: #AE3B3E;
+        }
+
+    }
+
+    #optionCardInput{
+        margin-top: 5px;
+        position: relative;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #3d3d3d;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+        align-items: center;
+        background: #262626;
+        overflow: hidden;
+        font-size: 20px;
+        color: #E0E0E0;
+        font-style: italic;
+        font-weight: 600;
+        user-select: none;
+        cursor: pointer;
+        transition: .3s;
+        
+        &:hover{
+            transform: scale(1.025);
+        }
+
+        #light{
+            $size: 130px;
+            width: $size;
+            height: $size;
+            border-radius: $size;
+            position: absolute;
+            opacity: .5;
+            filter: blur(50);
+            transform: translateY(-50%);
+            top: 50%;
+            right: calc(($size/4) * -1);
+        }
+    }
+}
