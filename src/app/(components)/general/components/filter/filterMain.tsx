@@ -4,6 +4,7 @@ import styles from "../../styles/filters/_filters.module.scss";
 // import {headers} from "next/headers"
 import ParidadeComp from "./pariade";
 import SitesComp from "./sites";
+import EstadoComp from "./estado"
 import OrdemParidadeComp from "./ordemParidade"
 import DisponibilidadComp from "./disponibilidade"
 
@@ -37,6 +38,7 @@ function filter() {
         <form onSubmit={metodos.handleSubmit(send)}>
           <ParidadeComp mark={styles.mark} />
           <SitesComp mark={styles.mark} />
+          <EstadoComp mark={styles.mark}/>
           <OrdemParidadeComp mark={styles.mark}/>
           <DisponibilidadComp mark={styles.mark} />
           <FinalComp mark={styles.mark} />
