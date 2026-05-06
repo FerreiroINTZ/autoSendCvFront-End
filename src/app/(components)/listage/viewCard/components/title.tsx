@@ -3,6 +3,7 @@ import {ViewCard} from "@Types/viewCardTypes"
 
 import Image from "next/image"
 import Link from "next/link"
+import {useRouter} from "next/navigation"
 
 import salarioIcon from "@icons/money.png"
 import empresaIcon from "@icons/biggerIcons/empresa.png"
@@ -28,6 +29,33 @@ function title(
     salario,
     link
   }: ViewCard) {
+
+    const router = useRouter()
+
+    async function changeFavorited(){
+      const resp = await fetch(`http://localhost:3000/change/favorited/${jobId}`)
+
+      if(resp.ok){
+        console.log("alterado!")
+        router.refresh()
+        return
+      }
+      console.log("erro ao alterar favoritado")
+
+    }
+
+    async function changeDisponibilidade(){
+      const resp = await fetch(`http://localhost:3000/change/disponibilidade/${jobId}`)
+
+      if(resp.ok){
+        console.log("alterado!")
+        router.refresh()
+        return
+      }
+      console.log("erro ao alterar favoritado")
+
+    }
+
   return (
     <div 
       id={styles.mainInfoContainer}>
@@ -75,7 +103,9 @@ function title(
       <button
         title={favoritado ? "desfavoritar" : "favoritar"} 
         id={styles.favoritadoContainer} 
-        data-favoritado={`${favoritado}`}>
+        data-favoritado={`${favoritado}`}
+        onClick={changeFavorited}
+        >
         <Image 
           src={favoritado ? favoritedIcon : notFavoritedIcon} 
           alt="botao de favoritos"/>
@@ -83,12 +113,16 @@ function title(
       </button>
 
       <div id={styles.acessivelContainer}>
-        <div id={styles.icon} data-disponibilidade={disponibilidade}>
-          <Image 
+        <button
+          onClick={changeDisponibilidade} 
+          title="mudar disponibilidade" 
+          id={styles.icon} 
+          data-disponibilidade={disponibilidade}>
+          <Image
             src={disponibilidade ? acessivelIcon : naoAcessivelIcon} 
             alt="icone sobre acessibilidade da vaga" />
             <span>{disponibilidade ? "DISPONIVEL" : "INDISPONIVEL"}</span>
-        </div>
+        </button>
         <p id={styles.last_check}>{"4 dias atras"}</p>
       </div>
     </div>

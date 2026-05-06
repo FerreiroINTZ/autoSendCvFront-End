@@ -117,7 +117,8 @@
             user-select: none;
 
             &:hover{
-                transform: scale(1.025);
+                transform: scale(1.025) translateX(15px);
+                background: #F2D9970f;
             }
 
             &[data-favoritado="true"]{
@@ -140,6 +141,12 @@
                 flex-direction: column;
                 gap: 20px;
                 $sizes: 125px;
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover{
+                    transform: scale(1.025);
+                }
 
                 width: $sizes;
                 height: $sizes;
