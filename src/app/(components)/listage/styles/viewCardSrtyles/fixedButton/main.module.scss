@@ -1,23 +1,71 @@
+#actionContainerBg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+
+    *{
+        pointer-events: all;
+        transition: .3s;
+    }
+
+    &[data-showing=false]{
+        user-select: none;
+        pointer-events: none;
+        background: none;
+    }
+
+    &[data-showing=true]{
+
+        #fixedButtonContainer{
+            padding: 40px 0px 20px 40px;
+            bottom: 0px;
+        }
+
+        #contentWrapper{
+            display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: end;
+        align-items: center;
+        grid-template-areas: 
+        "erase"
+        "acces_action"
+        "edit";
+        }
+        // background: blue !important;
+
+        #actionsButton{
+            border-radius: 100px;
+            opacity: .75;
+        }
+    }
+}
+
 #fixedButtonContainer{
     display: flex;
     justify-content: flex-end;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: red;
+    height: fit-content !important;
+    // background: red;
     
     #contentWrapper{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: end;
-        align-items: center;
-        grid-template-areas: 
-        "erase erase"
-        "access action"
-        "edit edit";
-        gap: 15px;
+        // gap: 15px;
         width: fit-content;
-        background: blue;
+        height: fit-content !important;
+        // background: blue;
+
+        #acces_actionsBtnContainer{
+            display: flex;
+            gap: 20px;
+            grid-area: acces_action;
+            // background: pink;
+            align-items: center;
+        }
     }
 
     button{
@@ -30,7 +78,6 @@
         border: 2px solid #404040;
         border-radius: 10px;
         padding: 15px;
-        grid-area: action;
         justify-self: start;
     }
 
@@ -44,7 +91,7 @@
         color: white;
         font-weight: 600;
         width: 200px;
-        margin-right: 150px;
+        // margin-right: 40px;
         cursor: pointer;
         transition: .3s;
 
@@ -64,7 +111,6 @@
         background: #274B25;
         border: 2px solid #5AB86C;
         border-radius: 10px 0px 0px 10px;
-        grid-area: access;
         margin-right: 0px;
     }
 
@@ -73,15 +119,5 @@
         border: 2px solid #CF9C48;
         border-radius: 10px 0px 10px 10px;
         grid-area: edit;
-    }
-
-    &[data-showing=true]{
-        padding: 20px 0px 20px 20px;
-        // background: blue !important;
-
-        #actionsButton{
-            border-radius: 100px;
-            opacity: .75;
-        }
     }
 }

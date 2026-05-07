@@ -16,7 +16,7 @@ function fixed() {
     const [
         expandFixedButtonContent, 
         setExpandFixedButtonContent
-    ] = useState(true)
+    ] = useState(false)
 
     async function deleteVacancy(){
       const resp = await fetch(`http://localhost:3000/change/delete/${"as"}`)
@@ -28,14 +28,28 @@ function fixed() {
 
   return (
     <div 
+      id={styles.actionContainerBg}
+      data-showing={expandFixedButtonContent}>
+
+    <div 
       id={styles.fixedButtonContainer} 
-      data-showing={expandFixedButtonContent}
       onMouseEnter={() => setExpandFixedButtonContent(true)}
-      onMouseLeave={() => setExpandFixedButtonContent(true)}>
+      onMouseLeave={() => setExpandFixedButtonContent(false)}>
       <div id={styles.contentWrapper}>
-        <button id={styles.actionsButton}>
-        <Image src={actionsIcon} alt="icone de acoes" />
-        </button>
+        <div id={styles.acces_actionsBtnContainer}>
+          {expandFixedButtonContent &&
+            <button
+            id={styles.accessBtn}
+            className={styles.actionsBtns}
+            >
+              <Image src={accessIcon} alt="" />
+              <p>CESSAR</p>
+            </button>
+          }
+          <button id={styles.actionsButton}>
+            <Image src={actionsIcon} alt="icone de acoes" />
+          </button>
+        </div>
         {expandFixedButtonContent &&
         <>
           <button
@@ -44,13 +58,6 @@ function fixed() {
             onClick={() => deleteVacancy()}>
               <Image src={eraseIcon} alt="" />
               <p>DELETAR</p>
-            </button>
-          <button
-            id={styles.accessBtn}
-            className={styles.actionsBtns}
-            >
-              <Image src={accessIcon} alt="" />
-              <p>CESSAR</p>
             </button>
           <button
             id={styles.editBtn}
@@ -62,6 +69,7 @@ function fixed() {
         </>
       }
       </div>
+    </div>
     </div>
   )
 }
