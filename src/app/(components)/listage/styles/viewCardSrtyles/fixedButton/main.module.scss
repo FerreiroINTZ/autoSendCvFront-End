@@ -1,0 +1,87 @@
+#fixedButtonContainer{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: red;
+    
+    #contentWrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: end;
+        align-items: center;
+        grid-template-areas: 
+        "erase erase"
+        "access action"
+        "edit edit";
+        gap: 15px;
+        width: fit-content;
+        background: blue;
+    }
+
+    button{
+        width: fit-content;
+        height: fit-content;
+    }
+
+    #actionsButton{
+        background: #E0E0E0;
+        border: 2px solid #404040;
+        border-radius: 10px;
+        padding: 15px;
+        grid-area: action;
+        justify-self: start;
+    }
+
+    .actionsBtns{
+        display: flex;
+        gap: 20px;
+        justify-content: center ;
+        align-items: center;
+        padding: 10px 20px;
+        font-size: 26px;
+        color: white;
+        font-weight: 600;
+        width: 200px;
+        margin-right: 150px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            transform: scale(1.025);
+        }
+    }
+
+    #eraseBtn{
+        background: #4B2525;
+        border: 2px solid #C15151;
+        border-radius: 10px 10px 0px 10px;
+        grid-area: erase;
+    }
+
+    #accessBtn{
+        background: #274B25;
+        border: 2px solid #5AB86C;
+        border-radius: 10px 0px 0px 10px;
+        grid-area: access;
+        margin-right: 0px;
+    }
+
+    #editBtn{
+        background: #4B3D25;
+        border: 2px solid #CF9C48;
+        border-radius: 10px 0px 10px 10px;
+        grid-area: edit;
+    }
+
+    &[data-showing=true]{
+        padding: 20px 0px 20px 20px;
+        // background: blue !important;
+
+        #actionsButton{
+            border-radius: 100px;
+            opacity: .75;
+        }
+    }
+}

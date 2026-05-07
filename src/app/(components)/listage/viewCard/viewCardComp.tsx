@@ -11,10 +11,11 @@ import FullDescription from "./components/fullDescription"
 import InfosComp from "./components/infos"
 import JustificativaComp from "./components/justificativa"
 import Acess_Dates_Component from "./components/acess_date_component"
+import FixedButton from "./fixedContent/fixedButton"
 
 
 function viewCardComp({data}: {data: any}) {
-    console.log(data)
+    // console.log(data)
 
     useEffect(() =>{
         const cntx = gsap.context(() =>{
@@ -90,7 +91,10 @@ function viewCardComp({data}: {data: any}) {
                 <JustificativaComp justificativa={data.justificativa}/>
                 
                 <FullDescription desc={data.descricao}/>
+
         </div>
+        
+        <FixedButton />
     </div>
   )
 }

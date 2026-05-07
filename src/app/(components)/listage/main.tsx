@@ -24,7 +24,7 @@ return(<>
           area={x.area}
           regiao={x.regiao}
           salario={x.salario}
-          site={x.site}
+          site={x.plataforma}
           dt_publicacao={x.dt_publicacao}
           paridade={x.paridade}
           link={x.link}

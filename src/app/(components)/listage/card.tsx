@@ -43,7 +43,7 @@ function card({
   const dateFormated = `${String(date.getDay()).padStart(2, "0")}/${String(date.getMonth()).padStart(2, "0")}/${date.getFullYear()}`
   
   // console.log("\x1b[31m acesso")
-  // console.log(searchwords, "\x1b[m")
+  // console.log(site, "\x1b[m")
   
   // id unico para o titulo
   const titleId = Math.random()
@@ -67,9 +67,10 @@ function card({
           </div>
         
         <ul className={styles.infos}>
-          <li className={styles.salarioContainer}><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
-          <li className={styles.empresaContainer} title={empresa}><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
+          <li className={styles.salarioContainer} title="salario"><Image src={salarioIcon} alt="" /><p>{salario}</p></li>
+          <li className={styles.empresaContainer} title={"empresa"}><Image src={empresaIcon} alt="" /><p>{empresa}</p></li>
           <li 
+            title="disponibilidade"
             className={disponibilidade 
               ? styles.disponivel 
               : styles.indisponivel}>
@@ -83,9 +84,13 @@ function card({
                   ? "DISPONIVEL" 
                   : "INDISPONIVEL"}</p>
           </li>
-          <li className={styles.siteContainer}><Image src={siteIcon} alt="" /><p>{site}</p></li>
-          <li className={styles.dt_publicacaoContainer}><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
-          <li>
+          <li 
+            className={styles.siteContainer} 
+            title="site"><Image src={siteIcon} alt="" /><p>{site}</p></li>
+          <li 
+            className={styles.dt_publicacaoContainer} 
+            title="data de publicacao"><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
+          <li title="utlima data de verificacao">
             <Image src={auditIcon} alt="" />
             <p>{dateFormated}</p>
           </li>
