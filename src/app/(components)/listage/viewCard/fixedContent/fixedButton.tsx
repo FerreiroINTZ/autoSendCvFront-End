@@ -9,7 +9,7 @@ import eraseIcon from "@icons/actionsContainer/eraseIcon.png"
 import accessIcon from "@icons/actionsContainer/accessIcon.png"
 import editIcon from "@icons/actionsContainer/editIcon.png"
 
-function fixed() {
+function fixed({jobId}: {jobId: string}) {
 
   const router = useRouter()
 
@@ -19,7 +19,7 @@ function fixed() {
     ] = useState(false)
 
     async function deleteVacancy(){
-      const resp = await fetch(`http://localhost:3000/change/delete/${"as"}`)
+      const resp = await fetch(`http://localhost:3000/change/delete/${jobId}`)
 
       if(resp.ok){
         router.push("/")

@@ -93,8 +93,8 @@ function viewCardComp({data}: {data: any}) {
                 <FullDescription desc={data.descricao}/>
 
         </div>
-        
-        <FixedButton />
+
+        <FixedButton jobId={data.jobid}/>
     </div>
   )
 }
