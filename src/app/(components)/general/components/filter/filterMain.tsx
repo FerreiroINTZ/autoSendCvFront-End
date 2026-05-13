@@ -7,6 +7,7 @@ import SitesComp from "./sites";
 import EstadoComp from "./estado"
 import OrdemParidadeComp from "./ordemParidade"
 import DisponibilidadComp from "./disponibilidade"
+import DateComp from "./date"
 
 import FinalComp from "./final";
 
@@ -14,8 +15,11 @@ import {FieldsType, fieldsObj} from "@Types/filterTypes"
 
 import { useForm, FormProvider } from "react-hook-form";
 import {useState} from "react"
+import {useRouter} from "next/navigation"
 
 function filter() {
+
+  const router = useRouter()
 
   const [filterBests, setFilterBests] = useState(false)
 
@@ -29,7 +33,14 @@ function filter() {
 
   function send(data: any){
     console.log("nada")
-    console.log(data)
+    // console.log(data)
+    const url = new URL(window.location.href)
+    for(let value of Object.keys(data)){
+      url.searchParams.set(value, data[value])
+    }
+
+    console.log(url.searchParams.toString())
+    router.push(`/?${url.searchParams.toString()}`)
   }
 
   return (
@@ -41,6 +52,7 @@ function filter() {
           <EstadoComp mark={styles.mark}/>
           <OrdemParidadeComp mark={styles.mark}/>
           <DisponibilidadComp mark={styles.mark} />
+          <DateComp mark={styles.mark}/>
           <FinalComp mark={styles.mark} />
         </form>
       </aside>

@@ -3,7 +3,8 @@ export const fieldsObj ={
     sites: ["linkedin", "indeed", "infojobs", "catho"],
     disponibilidade: "todos",
     ordemParidade: true,
-    acessState: "salvo"
+    acessState: "salvo",
+    date: "todos"
 } as const
 
 export type FieldsType = typeof fieldsObj
