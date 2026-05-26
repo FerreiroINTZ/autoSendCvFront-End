@@ -4,6 +4,9 @@ import {ViewCard} from "@Types/viewCardTypes"
 import Image from "next/image"
 import Link from "next/link"
 import {useRouter} from "next/navigation"
+import {useState} from "react"
+
+import changeAcessState from "@serverFunctions/changeAcessState"
 
 import salarioIcon from "@icons/money.png"
 import empresaIcon from "@icons/biggerIcons/empresa.png"
@@ -31,6 +34,7 @@ function title(
   }: ViewCard) {
 
     const router = useRouter()
+    const [isChanding, setIsChanding] = useState(false)
 
     async function changeFavorited(){
       const resp = await fetch(`http://localhost:3000/change/favorited/${jobId}`)
@@ -53,8 +57,16 @@ function title(
         return
       }
       console.log("erro ao alterar favoritado")
-
     }
+
+    // const changeAcessed = async (e: any) => 
+    //   await changeAcessState(
+    //     e,
+    //     isChanding,
+    //     setIsChanding,
+    //     id,
+    //     acessed
+    //   )
 
   return (
     <div 

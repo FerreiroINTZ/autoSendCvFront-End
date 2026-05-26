@@ -11,7 +11,7 @@ import DateComp from "./date"
 
 import FinalComp from "./final";
 
-import {FieldsType, fieldsObj} from "@Types/filterTypes"
+import {FieldsType, fieldsObj, useGetUrlParams, FieldsTypes} from "@Types/filterTypes"
 
 import { useForm, FormProvider } from "react-hook-form";
 import {useState} from "react"
@@ -23,8 +23,8 @@ function filter() {
 
   const [filterBests, setFilterBests] = useState(false)
 
-  const metodos = useForm<FieldsType>({
-    defaultValues: fieldsObj,
+  const metodos = useForm<FieldsTypes>({
+    defaultValues: useGetUrlParams(),
   });
 
   // const head = await headers()

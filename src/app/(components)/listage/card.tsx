@@ -7,6 +7,7 @@ import ExpandedCard from "./expandedCard/expandedCard"
 import DownArrow from "./downArrow"
 import Acessed from "./acessedCard"
 import ViewMoreComp from "./viewCard/viewMoreComp"
+import LinkToVacancySite from "./linkToVacancyCard"
 
 import linkIcon from "@icons/link.png"
 import salarioIcon from "@icons/money.png"
@@ -61,9 +62,11 @@ function card({
               <p>-</p> 
               <p></p>
             </div>
-            <a href={link} target="_blank" className={styles.link}>
-              <Image src={linkIcon} alt="link icon" title={link}/>
-            </a>
+            <LinkToVacancySite 
+              link={link} 
+              styles={styles}
+              id={id!}
+              acessed={acesso}/>
           </div>
         
         <ul className={styles.infos}>

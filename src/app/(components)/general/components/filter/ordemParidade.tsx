@@ -11,7 +11,7 @@ function ordemParidade({mark}: {mark: string}) {
 
     const {register, watch} = useFormContext()
 
-    const slw = watch("ordemParidade")
+    const slw = Boolean(watch("ordemParidade"))
 
     useEffect(() =>{
         console.log(slw)

@@ -39,6 +39,7 @@ const Card = ({paridade, qtd}: Paridade) =>{
 
 function pariade({mark}: {mark: string}) {
 
+    // fazer ele receber os dados pegos
     const paridades = ():Paridade[] => {
         const slw = [
             {

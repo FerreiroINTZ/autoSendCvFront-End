@@ -3,40 +3,21 @@
 import styles from "./styles/_card.module.scss"
 import { MouseEvent, useState } from "react"
 import {useRouter} from "next/navigation"
+import changeAcessState from "@serverFunctions/changeAcessState"
 
 function acessedCard({id, acessed, erased}: {id:number, acessed: string, erased?: boolean}) {
     const router = useRouter()
     const [isChanding, setIsChanding] = useState(false)
 
-    async function changeAcessedState(e: MouseEvent){
-        if(!isChanding){
-            // setIsChanding(() => true)
-            try{
-                const element = e.target as HTMLDivElement
-                const state = element.title
-                console.log(state)
-                const resp = await fetch(`http://localhost:3000/change?id=${id}&state=${acessed}`, {
-                    method: "GET",
-                    mode: "cors"
-                })
-                console.log(resp)
-                const {status} = resp
-                console.log(status)
-                if(status == 200){
-                    console.log("Mudado!")
-                    router.refresh()
-                    return 
-                }
-                console.error("Erro ao mudar!")
-                setIsChanding(() => false)
-            }catch(e){
-                console.log(e)
-                console.log("Erro!")
-            }
-        }else{
-            console.log("nada")
-        }
-    }
+    const changeAcessedState = async (e: any) => 
+        await changeAcessState(
+            e,
+            isChanding,
+            setIsChanding,
+            router,
+            id, 
+            acessed
+        )
 
   if(!erased){
         return (

@@ -1,4 +1,5 @@
 import fs from "fs";
+import {headers} from "next/headers"
 
 // os tipos do card de expansao
 export type OtherInfos = {
@@ -98,7 +99,13 @@ export default async function getListage() {
   //     resolve(dados);
   //   });
   
-  const resp3 = await fetch("http://localhost:3000/listage")
+  const headersMap = await headers()
+  const pathname = headersMap.get("x-pathname")
+  console.log(pathname)
+  const searchparams = new URL(pathname!).searchParams
+  console.log(searchparams.toString())
+  const resp3 = 
+  await fetch(`http://localhost:3000/listage?${searchparams.toString()}`)
   const dados: VacancyAPI[] = await resp3.json()
 
   // const data = await resp2();
