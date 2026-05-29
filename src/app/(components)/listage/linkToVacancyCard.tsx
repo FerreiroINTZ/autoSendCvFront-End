@@ -5,7 +5,7 @@ import linkIcon from "@icons/link.png"
 import changeAcessState from "@serverFunctions/changeAcessState"
 
 import {useRouter} from "next/navigation"
-import {useState} from "react"
+import {AnchorHTMLAttributes, MouseEventHandler, useState} from "react"
 
 function linkToVacancyCard({
     link, 
@@ -22,15 +22,23 @@ function linkToVacancyCard({
     const router = useRouter()
     const [isChanding, setIsChanding] = useState(false)
     
-    const changeAcess = async (e: any) =>
-        await changeAcessState(
-            e as any, 
-            isChanding, 
-            setIsChanding, 
-            router, 
-            id, 
-            acessed
-        )
+    const changeAcess = async (e: React.MouseEvent<HTMLAnchorElement>) =>{
+        e.preventDefault()
+        if(acessed == "salvo"){
+            await changeAcessState(
+                e as any, 
+                isChanding, 
+                setIsChanding, 
+                router, 
+                id, 
+                "acessado"
+            )
+        }
+        console.log("mudado!")
+        console.log(acessed)
+        window.open(link)
+        router.refresh()
+    }
         
     return (
     <a 

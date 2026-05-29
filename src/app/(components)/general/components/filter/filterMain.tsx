@@ -46,7 +46,7 @@ function filter() {
   return (
     <FormProvider {...metodos}>
       <aside id={styles.filters}>
-        <form onSubmit={metodos.handleSubmit(send)}>
+        <form onSubmit={metodos.handleSubmit(send)} id="formulario">
           <ParidadeComp mark={styles.mark} />
           <SitesComp mark={styles.mark} />
           <EstadoComp mark={styles.mark}/>

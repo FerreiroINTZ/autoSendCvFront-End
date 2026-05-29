@@ -35,6 +35,8 @@
     #goToTop{
         @extend #buttons;
         
+        display: block;
+        text-decoration: none;
         background: none;
         border: none;
         align-self: center;
