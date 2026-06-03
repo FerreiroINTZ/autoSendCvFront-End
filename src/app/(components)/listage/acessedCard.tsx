@@ -9,7 +9,7 @@ function acessedCard({id, acessed, erased}: {id:number, acessed: string, erased?
     const router = useRouter()
     const [isChanding, setIsChanding] = useState(false)
 
-    const changeAcessedState = async (e: any) => 
+    const changeAcessedState = async (e: any) => {
         await changeAcessState(
             e,
             isChanding,
@@ -18,6 +18,8 @@ function acessedCard({id, acessed, erased}: {id:number, acessed: string, erased?
             id, 
             acessed
         )
+        router.refresh()
+    }
 
   if(!erased){
         return (

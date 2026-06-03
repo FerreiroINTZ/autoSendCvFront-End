@@ -5,13 +5,14 @@ import ActionBtn from "./fixedContent/fixedContentMain"
 import getVacancies from "../../(functions)/getList"
 import ViewCardComp from './viewCard/viewCardComp'
 
-import {VacancyAPI} from "../../(functions)/getList"
+import {VacancyAPI} from "../../(functions)/types"
 import getViewCardInfos from "@serverFunctions/getViewCardInfos"
 
 import {headers} from "next/headers"
 import {redirect} from "next/navigation"
 
 function RenderComp({data}: {data: VacancyAPI[]}){
+// console.log(data)
 return(<>
   {data?.map((x: any, index) =>{
     // console.log("================")
@@ -37,7 +38,7 @@ return(<>
           weknesses={x?.expanded.weaknesses}
           acesso={x.acesso}
           disponibilidade={x.disponibilidade}
-          last_disp_analysis={x.last_disp_analysis}
+          last_disp_analysis={x.last_disp_analys}
           // acesso={x.}
           />)
         }
@@ -45,7 +46,7 @@ return(<>
         </>
 )}
 
-async function page() {
+async function main() {
 
   const data = await getVacancies()
   // console.log(data)
@@ -88,4 +89,4 @@ async function page() {
   )
 }
 
-export default page
+export default main

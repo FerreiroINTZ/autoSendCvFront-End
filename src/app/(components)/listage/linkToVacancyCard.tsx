@@ -24,8 +24,9 @@ function linkToVacancyCard({
     
     const changeAcess = async (e: React.MouseEvent<HTMLAnchorElement>) =>{
         e.preventDefault()
+        let canChange: number | undefined = 0
         if(acessed == "salvo"){
-            await changeAcessState(
+            canChange = await changeAcessState(
                 e as any, 
                 isChanding, 
                 setIsChanding, 
@@ -34,10 +35,13 @@ function linkToVacancyCard({
                 "acessado"
             )
         }
-        console.log("mudado!")
-        console.log(acessed)
-        window.open(link)
-        router.refresh()
+            console.log("mudado!")
+            console.log(acessed)
+            window.open(link)
+            if(canChange){
+                console.log("refresh")
+                router.refresh()
+            }
     }
         
     return (

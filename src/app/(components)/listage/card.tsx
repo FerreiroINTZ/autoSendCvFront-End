@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import styles from "./styles/_card.module.scss"
-import {Vancancy} from "../../(functions)/getList"
+import {Vancancy} from "../../(functions)/types"
 
 import ExpandedCard from "./expandedCard/expandedCard"
 import DownArrow from "./downArrow"
@@ -40,12 +40,9 @@ function card({
   searchwords,
   weknesses
 }: Vancancy) {
-  const date = new Date(last_disp_analysis)
-  const dateFormated = `${String(date.getDay()).padStart(2, "0")}/${String(date.getMonth()).padStart(2, "0")}/${date.getFullYear()}`
-  
-  // console.log("\x1b[31m acesso")
-  // console.log(site, "\x1b[m")
-  
+  // const date = new Date(last_disp_analysis)
+  console.log(state)
+
   // id unico para o titulo
   const titleId = Math.random()
   return (
@@ -95,7 +92,7 @@ function card({
             title="data de publicacao"><Image src={dt_publIicon} alt="" /><p>{dt_publicacao}</p></li>
           <li title="utlima data de verificacao">
             <Image src={auditIcon} alt="" />
-            <p>{dateFormated}</p>
+            <p>{last_disp_analysis}</p>
           </li>
         </ul>
         
