@@ -41,7 +41,7 @@ export function useGetUrlParams(){
     const searchParams = useSearchParams()
 
     const params = Object.fromEntries(searchParams)
-    console.log("slw", params)
+    // console.log("filtros", params)
     const parsedParams = filterParamsSchema.parse(params)
 
     return parsedParams

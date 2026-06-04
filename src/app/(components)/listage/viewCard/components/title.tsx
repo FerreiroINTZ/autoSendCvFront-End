@@ -6,7 +6,7 @@ import Link from "next/link"
 import {useRouter} from "next/navigation"
 import {useState} from "react"
 
-import changeAcessState from "@serverFunctions/changeAcessState"
+import changeDisponibilidadeAction from "@serverFunctions/changeDisponibilidade"
 
 import salarioIcon from "@icons/money.png"
 import empresaIcon from "@icons/biggerIcons/empresa.png"
@@ -49,14 +49,13 @@ function title(
     }
 
     async function changeDisponibilidade(){
-      const resp = await fetch(`http://localhost:3000/change/disponibilidade/${jobId}`)
-
-      if(resp.ok){
-        console.log("alterado!")
-        router.refresh()
-        return
+      const state = await changeDisponibilidadeAction(jobId)
+      if(state){
+          console.log("Mudado a dispoibilidade")
+          router.refresh()
+      }else{
+        console.error("Erro ao mudar a dispoibilidade")
       }
-      console.log("erro ao alterar favoritado")
     }
 
     // const changeAcessed = async (e: any) => 

@@ -1,92 +1,60 @@
-import styles from "./styles/listage.module.scss"
-import getData from "../../(functions)/getList"
-import CardComp from "../../(components)/listage/card"
-import ActionBtn from "./fixedContent/fixedContentMain"
-import getVacancies from "../../(functions)/getList"
-import ViewCardComp from './viewCard/viewCardComp'
+import styles from "./styles/listage.module.scss";
+import ActionBtn from "./fixedContent/fixedContentMain";
+import getVacancies from "../../(functions)/getList";
+import ViewCardComp from "./viewCard/viewCardComp";
 
-import {VacancyAPI} from "../../(functions)/types"
-import getViewCardInfos from "@serverFunctions/getViewCardInfos"
+import { VacancyAPI } from "../../(functions)/types";
+import getViewCardInfos from "@serverFunctions/getViewCardInfos";
 
-import {headers} from "next/headers"
-import {redirect} from "next/navigation"
+import { headers } from "next/headers";
 
-function RenderComp({data}: {data: VacancyAPI[]}){
-// console.log(data)
-return(<>
-  {data?.map((x: any, index) =>{
-    // console.log("================")
-        // console.log(x)
-        return(
-        <CardComp 
-          key={x.id}
-          id={x.id}
-          titulo={x.titulo}
-          area={x.area}
-          regiao={x.regiao}
-          salario={x.salario}
-          site={x.plataforma}
-          dt_publicacao={x.dt_publicacao}
-          paridade={x.paridade}
-          link={x.link}
-          empresa={x.empresa}
-          state={x.state}
-          summary={x?.expanded?.summary}
-          matches={x?.expanded?.matches}
-          keywords={x?.expanded?.keywords}
-          searchwords={x?.expanded?.searchwords}
-          weknesses={x?.expanded.weaknesses}
-          acesso={x.acesso}
-          disponibilidade={x.disponibilidade}
-          last_disp_analysis={x.last_disp_analys}
-          // acesso={x.}
-          />)
-        }
-  )}
-        </>
-)}
+import RenderComp from "./renderVacancyesComp"
 
 async function main() {
-
-  const data = await getVacancies()
-  // console.log(data)
-  // console.log("slw")
-
-  const heads = await headers()
-  const href = new URL(heads.get("x-pathname") as string)
-  const params = href.searchParams
-  const id = params.get("id")
-
-  let vacancyData = {}
+  // da listame dos registros
+  const data: any = await getVacancies();
+  
+  const heads = await headers();
+  const href = new URL(heads.get("x-pathname") as string);
+  const params = href.searchParams;
+  const id = params.get("id");
+  
+  // card de uma vaga
+  let vacancyData = {};
   if(id){
-    console.log(`\x1b[32m${id}\x1b[0m`)
-    vacancyData = await getViewCardInfos(Number(id))
+    console.log(`\x1b[32m${id}\x1b[0m`);
+    vacancyData = await getViewCardInfos(id ? Number(id) : 0);
     
-    // se der erro vai retorar false 
-    // //pois o id provavelmente sera icorreto ou iexistente
-    if(!vacancyData){
-      redirect("/")
+    console.log("vacancyData")
+    console.log(vacancyData)
+    
+    // se der erro vai retorar false
+    // pois o id provavelmente sera icorreto ou iexistente
+    if (!vacancyData || !data) {
+      console.log("\x1b[m erro! \x1b[m")
+      // redirect("/");
+      return;
     }
   }
+      return (
+        <>
+          <div id={styles.vacanciesContainer}>
+            {data.length ? (
+              <>
+              <RenderComp data={data} />
+              </>
+            ) : (
+              <h2 id="no_data_title">
+                Nao ha dados <br /> Disponiveis
+              </h2>
+            )}
+          </div>
 
-  // console.log(data[0])
+          {/*O Componente dop Cad de busca e rendeizado aqui  */}
 
-  return (
-    <>
-    <div id={styles.vacanciesContainer}>
-      {data.length
-      ? <RenderComp data={data}/>
-      : <h2 id="no_data_title">Nao ha dados <br/> Disponiveis</h2>
+          {id ? <ViewCardComp data={vacancyData} /> : <ActionBtn />}
+        </>
+      );
     }
-    </div>
-    
-      {/*O Componente dop Cad de busca e rendeizado aqui  */}
-      
-      {id 
-      ? <ViewCardComp data={vacancyData} />
-      : <ActionBtn />}
-      </>
-  )
-}
 
-export default main
+export default main;

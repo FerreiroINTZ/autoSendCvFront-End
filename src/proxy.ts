@@ -1,37 +1,30 @@
 import {
     NextRequest, 
-    NextResponse
+    NextResponse,
+    MiddlewareConfig
 }
 from "next/server"
 
-// por enquanto ele so serve para setar um header personalizado contendo a rota atual
+// seta um header especial contendo a rota atual por inteiro
+// seta um query param padrao do valor da pagia
 export async function proxy(req: NextRequest){
     const url = new URL(req.url)
-    
     let page = url.searchParams.get("p")
     if(!page){
         url.searchParams.set("p", "1")
     }
 
-    const resp = new Headers()
+    const resp = req.headers
     resp.set("x-pathname", url.href)
-    
-    // muda a rota (query) e os headers
-    // const response = NextResponse.rewrite(url, {
-    //     request: {
-    //         headers: requestHeaders,
-    //     },
-    // })
 
+    // return NextResponse.next()
     return NextResponse.rewrite(url, {
         request:{
             headers: resp
         }
     })
-
-    return NextResponse.next({headers: resp})
 }
 
-export const config = {
-    matcher: "/:path*"
+export const config: MiddlewareConfig = {
+    matcher: ["/"]
 }

@@ -3,45 +3,49 @@
 import Image from "next/image"
 import linkIcon from "@icons/link.png"
 import changeAcessState from "@serverFunctions/changeAcessState"
+import teste from "@serverFunctions/teste"
 
 import {useRouter} from "next/navigation"
-import {AnchorHTMLAttributes, MouseEventHandler, useState} from "react"
+import {useState} from "react"
 
 function linkToVacancyCard({
     link, 
     styles, 
     id, 
-    acessed
+    acessed,
+    setData
 }: {
     link: string, 
     styles: any,
     id: number,
-    acessed: string
+    acessed: string,
+    setData: any
 }) {
   
     const router = useRouter()
     const [isChanding, setIsChanding] = useState(false)
-    
+
     const changeAcess = async (e: React.MouseEvent<HTMLAnchorElement>) =>{
         e.preventDefault()
-        let canChange: number | undefined = 0
-        if(acessed == "salvo"){
-            canChange = await changeAcessState(
-                e as any, 
-                isChanding, 
-                setIsChanding, 
-                router, 
-                id, 
-                "acessado"
-            )
-        }
-            console.log("mudado!")
-            console.log(acessed)
-            window.open(link)
-            if(canChange){
-                console.log("refresh")
-                router.refresh()
+        let data: any;
+        try{
+
+            if(acessed == "salvo"){
+                data = await changeAcessState(id, "acessado")
             }
+            console.log("\x1b[31m Mudado o estado da vaga: ", id, "!\x1b[0m")
+            console.log(data)
+            window.open(link)
+            if(data){
+                console.log("refresh")
+                setData(data)
+            }else{
+                throw new Error("algum erro ao pegar os dados novamente")
+            }
+        }catch(e){
+            console.log(e)
+            console.log("erro!")
+        }
     }
         
     return (

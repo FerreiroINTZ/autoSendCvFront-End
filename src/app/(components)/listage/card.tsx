@@ -38,17 +38,16 @@ function card({
   keywords,
   matches,
   searchwords,
-  weknesses
-}: Vancancy) {
-  // const date = new Date(last_disp_analysis)
-  console.log(state)
+  weknesses,
+  setData
+}: Vancancy & {setData: any}) {
 
-  // id unico para o titulo
-  const titleId = Math.random()
+
+
   return (
     <>
-      <input className={styles.radionBuntonVac} type="radio" id={titulo + titleId} name="vancanciesCards"/>
-      <label htmlFor={titulo + titleId} className={styles.cardContainer} data-paridade={`${paridade}`}>
+      <input className={styles.radionBuntonVac} type="radio" id={titulo + id} name="vancanciesCards"/>
+      <label htmlFor={titulo + id} className={styles.cardContainer} data-paridade={`${paridade}`}>
       
         <div className={styles.mainInfos}>
         
@@ -63,7 +62,8 @@ function card({
               link={link} 
               styles={styles}
               id={id!}
-              acessed={acesso}/>
+              acessed={acesso}
+              setData={setData}/>
           </div>
         
         <ul className={styles.infos}>
@@ -103,8 +103,8 @@ function card({
             <div className={`${styles.state} ${styles[`currAcess-${acesso}`]}`}data-paridade={paridade}>
               {["salvo", "acessado", "aplicado"].map((x, index) =>
               index <= state - 1
-              ? <Acessed id={id as number} acessed={x} key={index}/>
-              : <Acessed id={id as number} acessed={x} key={index} erased={true}/>
+              ? <Acessed id={id as number} acessed={x} key={index} setData={setData}/>
+              : <Acessed id={id as number} acessed={x} key={index} erased={true} setData={setData}/>
               )}
             </div>
           </div>

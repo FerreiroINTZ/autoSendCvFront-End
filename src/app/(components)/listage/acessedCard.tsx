@@ -5,20 +5,16 @@ import { MouseEvent, useState } from "react"
 import {useRouter} from "next/navigation"
 import changeAcessState from "@serverFunctions/changeAcessState"
 
-function acessedCard({id, acessed, erased}: {id:number, acessed: string, erased?: boolean}) {
+function acessedCard(
+    {id, acessed, erased, setData}: 
+    {id:number, acessed: string, erased?: boolean, setData: any}
+) {
     const router = useRouter()
     const [isChanding, setIsChanding] = useState(false)
 
     const changeAcessedState = async (e: any) => {
-        await changeAcessState(
-            e,
-            isChanding,
-            setIsChanding,
-            router,
-            id, 
-            acessed
-        )
-        router.refresh()
+        const data = await changeAcessState(id, acessed)
+        setData(data)
     }
 
   if(!erased){
