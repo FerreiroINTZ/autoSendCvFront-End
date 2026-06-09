@@ -9,11 +9,6 @@ export default function RenderComp({ data }: { data: VacancyAPI[] }) {
   
     const [datas, setDatas] = useState<VacancyAPI[]>(data)
 
-    useEffect(() =>{
-        console.log('datas')
-        console.log(datas)
-    }, [datas])
-
   return (
     <>
       {datas?.map((x: any) => {

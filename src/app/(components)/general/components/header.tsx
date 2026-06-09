@@ -15,8 +15,10 @@ const Item = ({indice, value}: {indice: string, value: number}) =>{
 }
 
 async function header(){
+  try{
 
-  const dados = await getInfos() as Data[]
+    
+    const dados = await getInfos() as Data[]
   // console.log(dados)
 
   return (
@@ -31,6 +33,14 @@ async function header(){
       </ul>
     </header>
   )
+}catch(e){
+  console.log(e)
+  return (
+    <header id={styles.header}>
+      <h2>Erro no servidor!</h2>
+    </header>
+  ) 
+}
 }
 
 export default header

@@ -13,7 +13,14 @@ import RenderComp from "./renderVacancyesComp"
 async function main() {
   // da listame dos registros
   const data: any = await getVacancies();
-  
+  console.log(data)
+
+  if(!data.state){
+    return (
+      <h2 id={styles.errorTag}>Erro com o servidor!</h2>
+    )
+  }
+    
   const heads = await headers();
   const href = new URL(heads.get("x-pathname") as string);
   const params = href.searchParams;
@@ -50,11 +57,11 @@ async function main() {
             )}
           </div>
 
-          {/*O Componente dop Cad de busca e rendeizado aqui  */}
+          {/*O Componente do Card de busca e rendeizado aqui  */}
 
           {id ? <ViewCardComp data={vacancyData} /> : <ActionBtn />}
         </>
       );
-    }
-
+  }
+    
 export default main;

@@ -17,3 +17,16 @@
         background: none;
     }
 }
+
+#errorTag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #606060;
+    font-size: 50px;
+    user-select: none;
+}
+
+// h2{
+//     background: blue;
+// }

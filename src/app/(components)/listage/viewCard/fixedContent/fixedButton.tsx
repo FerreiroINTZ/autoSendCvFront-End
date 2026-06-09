@@ -22,7 +22,7 @@ function fixed({jobId}: {jobId: string}) {
       const resp = await fetch(`http://localhost:3000/change/delete/${jobId}`)
 
       if(resp.ok){
-        router.push("/")
+        window.location.href = "/"
       }
     }
 

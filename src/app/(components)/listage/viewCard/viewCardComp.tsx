@@ -46,7 +46,8 @@ function viewCardComp({data}: {data: any}) {
     const router = useRouter()
 
     function changeRoute(){
-        router.push("/")
+        // router.push("/")
+        window.location.href = "/"
     }
 
   return (
